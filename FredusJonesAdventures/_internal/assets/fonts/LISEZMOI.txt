@@ -1,0 +1,4 @@
+Polices (remplacement)
+=======================
+Placez ici vos fichiers .ttf ou .otf (ex. menu.ttf, hud.ttf).
+Le jeu utilise les polices système par défaut tant que vous ne branchez pas vos fichiers dans le code.

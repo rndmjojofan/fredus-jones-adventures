@@ -1,0 +1,153 @@
+﻿pygame 2.6.1 (SDL 2.28.4, Python 3.11.0)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+333           0 RESUME                   0
+
+334           2 LOAD_CONST               1 (0)
+              4 LOAD_CONST               2 (('COLOR_PLAYER',))
+              6 IMPORT_NAME              0 (config)
+              8 IMPORT_FROM              1 (COLOR_PLAYER)
+             10 STORE_FAST               3 (COLOR_PLAYER)
+             12 POP_TOP
+
+336          14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                2 (is_hidden)
+             26 POP_JUMP_FORWARD_IF_TRUE     7 (to 42)
+             28 LOAD_FAST                0 (self)
+             30 LOAD_ATTR                3 (is_invisible)
+             40 POP_JUMP_FORWARD_IF_FALSE     2 (to 46)
+        >>   42 LOAD_CONST               3 (128)
+             44 JUMP_FORWARD             1 (to 48)
+        >>   46 LOAD_CONST               4 (255)
+        >>   48 STORE_FAST               4 (alpha)
+
+337          50 LOAD_CONST               1 (0)
+             52 LOAD_CONST               5 (('blit_aligned_bottom', 'get_player_frame'))
+             54 IMPORT_NAME              4 (sprite_registry)
+             56 IMPORT_FROM              5 (blit_aligned_bottom)
+             58 STORE_FAST               5 (blit_aligned_bottom)
+             60 IMPORT_FROM              6 (get_player_frame)
+             62 STORE_FAST               6 (get_player_frame)
+             64 POP_TOP
+
+339          66 PUSH_NULL
+             68 LOAD_FAST                6 (get_player_frame)
+             70 LOAD_FAST                0 (self)
+             72 LOAD_ATTR                7 (_anim_name)
+             82 LOAD_FAST                0 (self)
+             84 LOAD_ATTR                8 (_anim_frame)
+             94 LOAD_GLOBAL             18 (PLAYER_SPRITE_DISPLAY)
+            106 PRECALL                  3
+            110 CALL                     3
+            120 STORE_FAST               7 (img)
+
+340         122 LOAD_FAST                7 (img)
+            124 POP_JUMP_FORWARD_IF_NONE    29 (to 184)
+
+341         126 PUSH_NULL
+            128 LOAD_FAST                5 (blit_aligned_bottom)
+            130 LOAD_FAST                1 (screen)
+            132 LOAD_FAST                7 (img)
+            134 LOAD_FAST                0 (self)
+            136 LOAD_ATTR               10 (rect)
+            146 LOAD_FAST                2 (camera_offset)
+            148 LOAD_FAST                0 (self)
+            150 LOAD_ATTR               11 (sprite_flip)
+            160 LOAD_FAST                4 (alpha)
+            162 KW_NAMES                 6
+            164 PRECALL                  6
+            168 CALL                     6
+            178 POP_TOP
+
+342         180 LOAD_CONST               0 (None)
+            182 RETURN_VALUE
+
+344     >>  184 LOAD_FAST                0 (self)
+            186 LOAD_ATTR               10 (rect)
+            196 LOAD_METHOD             12 (move)
+            218 LOAD_GLOBAL             27 (NULL + int)
+            230 LOAD_FAST                2 (camera_offset)
+            232 LOAD_ATTR               14 (x)
+            242 PRECALL                  1
+            246 CALL                     1
+            256 UNARY_NEGATIVE
+            258 LOAD_GLOBAL             27 (NULL + int)
+            270 LOAD_FAST                2 (camera_offset)
+            272 LOAD_ATTR               15 (y)
+            282 PRECALL                  1
+            286 CALL                     1
+            296 UNARY_NEGATIVE
+            298 PRECALL                  2
+            302 CALL                     2
+            312 STORE_FAST               8 (draw_rect)
+
+345         314 LOAD_FAST                3 (COLOR_PLAYER)
+            316 STORE_FAST               9 (col)
+
+346         318 LOAD_FAST                0 (self)
+            320 LOAD_ATTR               16 (hurt_flash)
+            330 LOAD_CONST               1 (0)
+            332 COMPARE_OP               4 (>)
+            338 POP_JUMP_FORWARD_IF_FALSE     2 (to 344)
+
+347         340 LOAD_CONST               7 ((255, 120, 120))
+            342 STORE_FAST               9 (col)
+
+348     >>  344 LOAD_FAST                4 (alpha)
+            346 LOAD_CONST               4 (255)
+            348 COMPARE_OP               0 (<)
+            354 POP_JUMP_FORWARD_IF_FALSE   123 (to 602)
+
+349         356 LOAD_GLOBAL             35 (NULL + pygame)
+            368 LOAD_ATTR               18 (Surface)
+            378 LOAD_FAST                8 (draw_rect)
+            380 LOAD_ATTR               19 (size)
+            390 LOAD_GLOBAL             34 (pygame)
+            402 LOAD_ATTR               20 (SRCALPHA)
+            412 PRECALL                  2
+            416 CALL                     2
+            426 STORE_FAST              10 (s)
+
+350         428 LOAD_GLOBAL             34 (pygame)
+            440 LOAD_ATTR               21 (draw)
+            450 LOAD_METHOD             10 (rect)
+            472 LOAD_FAST               10 (s)
+            474 BUILD_LIST               0
+            476 LOAD_FAST                9 (col)
+            478 LIST_EXTEND              1
+            480 LOAD_FAST                4 (alpha)
+            482 LIST_APPEND              1
+            484 LIST_TO_TUPLE
+            486 LOAD_FAST               10 (s)
+            488 LOAD_METHOD             22 (get_rect)
+            510 PRECALL                  0
+            514 CALL                     0
+            524 LOAD_CONST               8 (4)
+            526 KW_NAMES                 9
+            528 PRECALL                  4
+            532 CALL                     4
+            542 POP_TOP
+
+351         544 LOAD_FAST                1 (screen)
+            546 LOAD_METHOD             23 (blit)
+            568 LOAD_FAST               10 (s)
+            570 LOAD_FAST                8 (draw_rect)
+            572 LOAD_ATTR               24 (topleft)
+            582 PRECALL                  2
+            586 CALL                     2
+            596 POP_TOP
+            598 LOAD_CONST               0 (None)
+            600 RETURN_VALUE
+
+353     >>  602 LOAD_GLOBAL             34 (pygame)
+            614 LOAD_ATTR               21 (draw)
+            624 LOAD_METHOD             10 (rect)
+            646 LOAD_FAST                1 (screen)
+            648 LOAD_FAST                9 (col)
+            650 LOAD_FAST                8 (draw_rect)
+            652 LOAD_CONST               8 (4)
+            654 KW_NAMES                 9
+            656 PRECALL                  4
+            660 CALL                     4
+            670 POP_TOP
+            672 LOAD_CONST               0 (None)
+            674 RETURN_VALUE

@@ -1,0 +1,171 @@
+﻿pygame 2.6.1 (SDL 2.28.4, Python 3.11.0)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+ 26           0 RESUME                   0
+
+ 27           2 LOAD_CONST               1 (0)
+              4 LOAD_CONST               2 (('CONTROLS',))
+              6 IMPORT_NAME              0 (config)
+              8 IMPORT_FROM              1 (CONTROLS)
+             10 STORE_FAST               2 (CONTROLS)
+             12 POP_TOP
+
+ 29          14 LOAD_FAST                1 (event)
+             16 LOAD_ATTR                2 (type)
+             26 LOAD_GLOBAL              6 (pygame)
+             38 LOAD_ATTR                4 (KEYDOWN)
+             48 COMPARE_OP               2 (==)
+             54 EXTENDED_ARG             1
+             56 POP_JUMP_FORWARD_IF_FALSE   319 (to 696)
+
+ 30          58 LOAD_FAST                1 (event)
+             60 LOAD_ATTR                5 (key)
+             70 LOAD_FAST                2 (CONTROLS)
+             72 LOAD_CONST               3 ('hub_menu')
+             74 BINARY_SUBSCR
+             84 COMPARE_OP               2 (==)
+             90 POP_JUMP_FORWARD_IF_FALSE    15 (to 122)
+
+ 31          92 LOAD_FAST                0 (self)
+             94 LOAD_ATTR                6 (shop_open)
+            104 UNARY_NOT
+            106 LOAD_FAST                0 (self)
+            108 STORE_ATTR               6 (shop_open)
+
+ 32         118 LOAD_CONST               0 (None)
+            120 RETURN_VALUE
+
+ 33     >>  122 LOAD_FAST                0 (self)
+            124 LOAD_ATTR                6 (shop_open)
+            134 EXTENDED_ARG             1
+            136 POP_JUMP_FORWARD_IF_FALSE   260 (to 658)
+
+ 34         138 LOAD_FAST                1 (event)
+            140 LOAD_ATTR                5 (key)
+            150 LOAD_FAST                2 (CONTROLS)
+            152 LOAD_CONST               4 ('move_up')
+            154 BINARY_SUBSCR
+            164 COMPARE_OP               2 (==)
+            170 POP_JUMP_FORWARD_IF_FALSE    37 (to 246)
+
+ 35         172 LOAD_FAST                0 (self)
+            174 LOAD_ATTR                7 (shop_sel)
+            184 LOAD_CONST               5 (1)
+            186 BINARY_OP               10 (-)
+            190 LOAD_GLOBAL             17 (NULL + len)
+            202 LOAD_FAST                0 (self)
+            204 LOAD_ATTR                9 (shop_items)
+            214 PRECALL                  1
+            218 CALL                     1
+            228 BINARY_OP                6 (%)
+            232 LOAD_FAST                0 (self)
+            234 STORE_ATTR               7 (shop_sel)
+            244 JUMP_FORWARD           225 (to 696)
+
+ 36     >>  246 LOAD_FAST                1 (event)
+            248 LOAD_ATTR                5 (key)
+            258 LOAD_FAST                2 (CONTROLS)
+            260 LOAD_CONST               6 ('move_down')
+            262 BINARY_SUBSCR
+            272 COMPARE_OP               2 (==)
+            278 POP_JUMP_FORWARD_IF_FALSE    37 (to 354)
+
+ 37         280 LOAD_FAST                0 (self)
+            282 LOAD_ATTR                7 (shop_sel)
+            292 LOAD_CONST               5 (1)
+            294 BINARY_OP                0 (+)
+            298 LOAD_GLOBAL             17 (NULL + len)
+            310 LOAD_FAST                0 (self)
+            312 LOAD_ATTR                9 (shop_items)
+            322 PRECALL                  1
+            326 CALL                     1
+            336 BINARY_OP                6 (%)
+            340 LOAD_FAST                0 (self)
+            342 STORE_ATTR               7 (shop_sel)
+            352 JUMP_FORWARD           171 (to 696)
+
+ 38     >>  354 LOAD_FAST                1 (event)
+            356 LOAD_ATTR                5 (key)
+            366 LOAD_FAST                2 (CONTROLS)
+            368 LOAD_CONST               7 ('interact')
+            370 BINARY_SUBSCR
+            380 COMPARE_OP               2 (==)
+            386 POP_JUMP_FORWARD_IF_FALSE   134 (to 656)
+
+ 39         388 LOAD_FAST                0 (self)
+            390 LOAD_ATTR                9 (shop_items)
+            400 LOAD_FAST                0 (self)
+            402 LOAD_ATTR                7 (shop_sel)
+            412 BINARY_SUBSCR
+            422 STORE_FAST               3 (key)
+
+ 40         424 LOAD_GLOBAL             20 (UPGRADE_COSTS)
+            436 LOAD_FAST                3 (key)
+            438 BINARY_SUBSCR
+            448 STORE_FAST               4 (cost)
+
+ 41         450 LOAD_FAST                0 (self)
+            452 LOAD_ATTR               11 (currency)
+            462 LOAD_FAST                4 (cost)
+            464 COMPARE_OP               5 (>=)
+            470 POP_JUMP_FORWARD_IF_FALSE    92 (to 656)
+
+ 42         472 LOAD_FAST                3 (key)
+            474 LOAD_CONST               8 ('new_item')
+            476 COMPARE_OP               2 (==)
+            482 POP_JUMP_FORWARD_IF_FALSE     1 (to 486)
+
+ 43         484 JUMP_FORWARD           105 (to 696)
+
+ 45     >>  486 LOAD_CONST               9 (True)
+            488 LOAD_FAST                0 (self)
+            490 LOAD_ATTR               12 (upgrades)
+            500 LOAD_FAST                3 (key)
+            502 STORE_SUBSCR
+
+ 46         506 LOAD_FAST                0 (self)
+            508 COPY                     1
+            510 LOAD_ATTR               11 (currency)
+            520 LOAD_FAST                4 (cost)
+            522 BINARY_OP               23 (-=)
+            526 SWAP                     2
+            528 STORE_ATTR              11 (currency)
+
+ 47         538 LOAD_GLOBAL             27 (NULL + SaveManager)
+            550 LOAD_ATTR               14 (load_game)
+            560 PRECALL                  0
+            564 CALL                     0
+            574 STORE_FAST               5 (data)
+
+ 48         576 LOAD_FAST                0 (self)
+            578 LOAD_ATTR               11 (currency)
+            588 LOAD_FAST                5 (data)
+            590 LOAD_CONST              10 ('currency')
+            592 STORE_SUBSCR
+
+ 49         596 LOAD_FAST                0 (self)
+            598 LOAD_ATTR               12 (upgrades)
+            608 LOAD_FAST                5 (data)
+            610 LOAD_CONST              11 ('upgrades')
+            612 STORE_SUBSCR
+
+ 50         616 LOAD_GLOBAL             27 (NULL + SaveManager)
+            628 LOAD_ATTR               15 (save_game)
+            638 LOAD_FAST                5 (data)
+            640 PRECALL                  1
+            644 CALL                     1
+            654 POP_TOP
+        >>  656 JUMP_FORWARD            19 (to 696)
+
+ 51     >>  658 LOAD_FAST                1 (event)
+            660 LOAD_ATTR                5 (key)
+            670 LOAD_FAST                2 (CONTROLS)
+            672 LOAD_CONST               7 ('interact')
+            674 BINARY_SUBSCR
+            684 COMPARE_OP               2 (==)
+            690 POP_JUMP_FORWARD_IF_FALSE     2 (to 696)
+
+ 52         692 LOAD_CONST              12 ('menu')
+            694 RETURN_VALUE
+
+ 53     >>  696 LOAD_CONST               0 (None)
+            698 RETURN_VALUE

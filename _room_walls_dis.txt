@@ -1,0 +1,97 @@
+﻿pygame 2.6.1 (SDL 2.28.4, Python 3.11.0)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+ 70           0 RESUME                   0
+
+ 71           2 LOAD_GLOBAL              0 (TILE_SIZE)
+             14 STORE_FAST               1 (t)
+
+ 72          16 LOAD_FAST                0 (self)
+             18 LOAD_ATTR                1 (width)
+             28 LOAD_FAST                0 (self)
+             30 LOAD_ATTR                2 (height)
+             40 STORE_FAST               3 (h)
+             42 STORE_FAST               2 (w)
+
+ 74          44 LOAD_GLOBAL              7 (NULL + pygame)
+             56 LOAD_ATTR                4 (Rect)
+             66 LOAD_CONST               1 (0)
+             68 LOAD_CONST               1 (0)
+             70 LOAD_FAST                2 (w)
+             72 LOAD_FAST                1 (t)
+             74 PRECALL                  4
+             78 CALL                     4
+
+ 75          88 LOAD_GLOBAL              7 (NULL + pygame)
+            100 LOAD_ATTR                4 (Rect)
+            110 LOAD_CONST               1 (0)
+            112 LOAD_FAST                3 (h)
+            114 LOAD_FAST                1 (t)
+            116 BINARY_OP               10 (-)
+            120 LOAD_FAST                2 (w)
+            122 LOAD_FAST                1 (t)
+            124 PRECALL                  4
+            128 CALL                     4
+
+ 76         138 LOAD_GLOBAL              7 (NULL + pygame)
+            150 LOAD_ATTR                4 (Rect)
+            160 LOAD_CONST               1 (0)
+            162 LOAD_CONST               1 (0)
+            164 LOAD_FAST                1 (t)
+            166 LOAD_FAST                3 (h)
+            168 PRECALL                  4
+            172 CALL                     4
+
+ 77         182 LOAD_GLOBAL              7 (NULL + pygame)
+            194 LOAD_ATTR                4 (Rect)
+            204 LOAD_FAST                2 (w)
+            206 LOAD_FAST                1 (t)
+            208 BINARY_OP               10 (-)
+            212 LOAD_CONST               1 (0)
+            214 LOAD_FAST                1 (t)
+            216 LOAD_FAST                3 (h)
+            218 PRECALL                  4
+            222 CALL                     4
+
+ 73         232 BUILD_LIST               4
+            234 LOAD_FAST                0 (self)
+            236 STORE_ATTR               5 (walls)
+
+ 79         246 LOAD_FAST                2 (w)
+            248 LOAD_CONST               2 (2)
+            250 BINARY_OP                2 (//)
+            254 LOAD_FAST                3 (h)
+            256 LOAD_FAST                1 (t)
+            258 LOAD_CONST               3 (3)
+            260 BINARY_OP                5 (*)
+            264 BINARY_OP               10 (-)
+            268 BUILD_TUPLE              2
+            270 LOAD_FAST                0 (self)
+            272 STORE_ATTR               6 (entry_xy)
+
+ 80         282 LOAD_FAST                0 (self)
+            284 LOAD_ATTR                7 (type)
+            294 LOAD_CONST               4 ('platform')
+            296 COMPARE_OP               3 (!=)
+            302 POP_JUMP_FORWARD_IF_FALSE    39 (to 382)
+
+ 81         304 LOAD_GLOBAL              7 (NULL + pygame)
+            316 LOAD_ATTR                4 (Rect)
+            326 LOAD_FAST                2 (w)
+            328 LOAD_CONST               2 (2)
+            330 BINARY_OP                2 (//)
+            334 LOAD_CONST               5 (40)
+            336 BINARY_OP               10 (-)
+            340 LOAD_FAST                1 (t)
+            342 LOAD_CONST               2 (2)
+            344 BINARY_OP                5 (*)
+            348 LOAD_CONST               6 (80)
+            350 LOAD_CONST               6 (80)
+            352 PRECALL                  4
+            356 CALL                     4
+            366 LOAD_FAST                0 (self)
+            368 STORE_ATTR               8 (exit_rect)
+            378 LOAD_CONST               0 (None)
+            380 RETURN_VALUE
+
+ 80     >>  382 LOAD_CONST               0 (None)
+            384 RETURN_VALUE

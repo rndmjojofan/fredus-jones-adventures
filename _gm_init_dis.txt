@@ -1,0 +1,168 @@
+﻿pygame 2.6.1 (SDL 2.28.4, Python 3.11.0)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+ 37           0 RESUME                   0
+
+ 38           2 LOAD_FAST                1 (screen)
+              4 LOAD_FAST                0 (self)
+              6 STORE_ATTR               0 (screen)
+
+ 39          16 LOAD_GLOBAL              2 (pygame)
+             28 LOAD_ATTR                2 (time)
+             38 LOAD_METHOD              3 (Clock)
+             60 PRECALL                  0
+             64 CALL                     0
+             74 LOAD_FAST                0 (self)
+             76 STORE_ATTR               4 (clock)
+
+ 40          86 LOAD_GLOBAL              2 (pygame)
+             98 LOAD_ATTR                5 (font)
+            108 LOAD_METHOD              6 (SysFont)
+            130 LOAD_CONST               1 ('consolas')
+            132 LOAD_CONST               2 (20)
+            134 PRECALL                  2
+            138 CALL                     2
+            148 LOAD_FAST                0 (self)
+            150 STORE_ATTR               5 (font)
+
+ 41         160 LOAD_GLOBAL              2 (pygame)
+            172 LOAD_ATTR                5 (font)
+            182 LOAD_METHOD              6 (SysFont)
+            204 LOAD_CONST               1 ('consolas')
+            206 LOAD_CONST               3 (36)
+            208 LOAD_CONST               4 (True)
+            210 KW_NAMES                 5
+            212 PRECALL                  3
+            216 CALL                     3
+            226 LOAD_FAST                0 (self)
+            228 STORE_ATTR               7 (title_font)
+
+ 43         238 LOAD_GLOBAL             17 (NULL + SaveManager)
+            250 LOAD_ATTR                9 (load_game)
+            260 PRECALL                  0
+            264 CALL                     0
+            274 LOAD_FAST                0 (self)
+            276 STORE_ATTR              10 (save_data)
+
+ 44         286 LOAD_GLOBAL             23 (NULL + MusicManager)
+            298 PRECALL                  0
+            302 CALL                     0
+            312 LOAD_FAST                0 (self)
+            314 STORE_ATTR              12 (music)
+
+ 45         324 LOAD_GLOBAL             27 (NULL + ParticleSystem)
+            336 PRECALL                  0
+            340 CALL                     0
+            350 LOAD_FAST                0 (self)
+            352 STORE_ATTR              14 (particles)
+
+ 47         362 LOAD_CONST               6 ('main_menu')
+            364 LOAD_FAST                0 (self)
+            366 STORE_ATTR              15 (state)
+
+ 48         376 LOAD_GLOBAL             33 (NULL + MainMenu)
+            388 LOAD_FAST                0 (self)
+            390 LOAD_ATTR                5 (font)
+            400 LOAD_FAST                0 (self)
+            402 LOAD_ATTR                7 (title_font)
+            412 PRECALL                  2
+            416 CALL                     2
+            426 LOAD_FAST                0 (self)
+            428 STORE_ATTR              17 (main_menu)
+
+ 49         438 LOAD_GLOBAL             37 (NULL + PauseMenu)
+            450 LOAD_FAST                0 (self)
+            452 LOAD_ATTR                5 (font)
+            462 PRECALL                  1
+            466 CALL                     1
+            476 LOAD_FAST                0 (self)
+            478 STORE_ATTR              19 (pause_menu)
+
+ 50         488 LOAD_GLOBAL             41 (NULL + HUD)
+            500 LOAD_FAST                0 (self)
+            502 LOAD_ATTR                5 (font)
+            512 PRECALL                  1
+            516 CALL                     1
+            526 LOAD_FAST                0 (self)
+            528 STORE_ATTR              21 (hud)
+
+ 51         538 LOAD_GLOBAL             45 (NULL + Hub)
+            550 LOAD_FAST                0 (self)
+            552 LOAD_ATTR                5 (font)
+            562 PRECALL                  1
+            566 CALL                     1
+            576 LOAD_FAST                0 (self)
+            578 STORE_ATTR              23 (hub)
+
+ 52         588 LOAD_GLOBAL             49 (NULL + EndScreen)
+            600 LOAD_FAST                0 (self)
+            602 LOAD_ATTR                5 (font)
+            612 PRECALL                  1
+            616 CALL                     1
+            626 LOAD_FAST                0 (self)
+            628 STORE_ATTR              25 (end_screen)
+
+ 54         638 BUILD_LIST               0
+            640 LOAD_FAST                0 (self)
+            642 STORE_ATTR              26 (rooms)
+
+ 55         652 LOAD_CONST               7 (0)
+            654 LOAD_FAST                0 (self)
+            656 STORE_ATTR              27 (room_index)
+
+ 56         666 LOAD_CONST               0 (None)
+            668 LOAD_FAST                0 (self)
+            670 STORE_ATTR              28 (room)
+
+ 57         680 LOAD_CONST               0 (None)
+            682 LOAD_FAST                0 (self)
+            684 STORE_ATTR              29 (player)
+
+ 58         694 LOAD_GLOBAL             61 (NULL + Camera)
+            706 PRECALL                  0
+            710 CALL                     0
+            720 LOAD_FAST                0 (self)
+            722 STORE_ATTR              31 (camera)
+
+ 59         732 LOAD_GLOBAL             65 (NULL + RoomTransition)
+            744 PRECALL                  0
+            748 CALL                     0
+            758 LOAD_FAST                0 (self)
+            760 STORE_ATTR              33 (transition)
+
+ 60         770 LOAD_CONST               8 (False)
+            772 LOAD_FAST                0 (self)
+            774 STORE_ATTR              34 (_pending_advance)
+
+ 62         784 LOAD_CONST               7 (0)
+            786 LOAD_FAST                0 (self)
+            788 STORE_ATTR              35 (run_rooms_cleared)
+
+ 63         798 LOAD_CONST               7 (0)
+            800 LOAD_FAST                0 (self)
+            802 STORE_ATTR              36 (run_kills)
+
+ 64         812 LOAD_CONST               7 (0)
+            814 LOAD_FAST                0 (self)
+            816 STORE_ATTR              37 (run_pacifist_rooms)
+
+ 65         826 LOAD_CONST               7 (0)
+            828 LOAD_FAST                0 (self)
+            830 STORE_ATTR              38 (pending_extra_enemies)
+
+ 66         840 LOAD_CONST               8 (False)
+            842 LOAD_FAST                0 (self)
+            844 STORE_ATTR              39 (debug)
+
+ 67         854 LOAD_CONST               8 (False)
+            856 LOAD_FAST                0 (self)
+            858 STORE_ATTR              40 (debug_invincible)
+
+ 68         868 LOAD_CONST               8 (False)
+            870 LOAD_FAST                0 (self)
+            872 STORE_ATTR              41 (debug_slow)
+
+ 69         882 LOAD_CONST               8 (False)
+            884 LOAD_FAST                0 (self)
+            886 STORE_ATTR              42 (_combat)
+            896 LOAD_CONST               0 (None)
+            898 RETURN_VALUE

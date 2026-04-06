@@ -1,0 +1,304 @@
+﻿pygame 2.6.1 (SDL 2.28.4, Python 3.11.0)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+              0 MAKE_CELL                0 (self)
+              2 MAKE_CELL               11 (plate)
+
+197           4 RESUME                   0
+
+198           6 LOAD_CONST               1 (False)
+              8 LOAD_CONST               1 (False)
+             10 LOAD_CONST               2 (('wrong_door', 'alert_all'))
+             12 BUILD_CONST_KEY_MAP      2
+             14 STORE_FAST               3 (events)
+
+200          16 LOAD_DEREF               0 (self)
+             18 LOAD_ATTR                0 (platform_timer)
+             28 POP_JUMP_FORWARD_IF_NONE    70 (to 170)
+             30 LOAD_DEREF               0 (self)
+             32 LOAD_ATTR                1 (type)
+             42 LOAD_CONST               3 ('platform')
+             44 COMPARE_OP               2 (==)
+             50 POP_JUMP_FORWARD_IF_FALSE    59 (to 170)
+
+201          52 LOAD_DEREF               0 (self)
+             54 LOAD_ATTR                0 (platform_timer)
+             64 STORE_FAST               4 (prev)
+
+202          66 LOAD_DEREF               0 (self)
+             68 COPY                     1
+             70 LOAD_ATTR                0 (platform_timer)
+             80 LOAD_FAST                1 (dt)
+             82 BINARY_OP               23 (-=)
+             86 SWAP                     2
+             88 STORE_ATTR               0 (platform_timer)
+
+203          98 LOAD_FAST                4 (prev)
+            100 LOAD_CONST               4 (0)
+            102 COMPARE_OP               4 (>)
+            108 POP_JUMP_FORWARD_IF_FALSE    30 (to 170)
+            110 LOAD_DEREF               0 (self)
+            112 LOAD_ATTR                0 (platform_timer)
+            122 LOAD_CONST               4 (0)
+            124 COMPARE_OP               1 (<=)
+            130 POP_JUMP_FORWARD_IF_FALSE    19 (to 170)
+            132 LOAD_DEREF               0 (self)
+            134 LOAD_ATTR                2 (_platform_timeup_damage)
+            144 POP_JUMP_FORWARD_IF_TRUE    12 (to 170)
+
+204         146 LOAD_CONST               5 (True)
+            148 LOAD_FAST                3 (events)
+            150 LOAD_CONST               6 ('platform_timeout')
+            152 STORE_SUBSCR
+
+205         156 LOAD_CONST               5 (True)
+            158 LOAD_DEREF               0 (self)
+            160 STORE_ATTR               2 (_platform_timeup_damage)
+
+207     >>  170 LOAD_DEREF               0 (self)
+            172 LOAD_ATTR                3 (traps_spikes)
+            182 GET_ITER
+        >>  184 FOR_ITER                83 (to 352)
+            186 STORE_FAST               5 (s)
+
+208         188 LOAD_FAST                5 (s)
+            190 LOAD_METHOD              4 (update)
+            212 LOAD_FAST                1 (dt)
+            214 PRECALL                  1
+            218 CALL                     1
+            228 POP_TOP
+
+209         230 LOAD_FAST                5 (s)
+            232 LOAD_METHOD              5 (active_hitbox)
+            254 PRECALL                  0
+            258 CALL                     0
+            268 STORE_FAST               6 (hb)
+
+210         270 LOAD_FAST                6 (hb)
+            272 POP_JUMP_FORWARD_IF_FALSE    38 (to 350)
+            274 LOAD_FAST                2 (player)
+            276 LOAD_ATTR                6 (rect)
+            286 LOAD_METHOD              7 (colliderect)
+            308 LOAD_FAST                6 (hb)
+            310 PRECALL                  1
+            314 CALL                     1
+            324 POP_JUMP_FORWARD_IF_FALSE    12 (to 350)
+            326 LOAD_FAST                2 (player)
+            328 LOAD_ATTR                8 (roll_invincible)
+            338 POP_JUMP_FORWARD_IF_TRUE     5 (to 350)
+
+211         340 LOAD_CONST               5 (True)
+            342 LOAD_FAST                3 (events)
+            344 LOAD_CONST               7 ('hit_player')
+            346 STORE_SUBSCR
+        >>  350 JUMP_BACKWARD           84 (to 184)
+
+213     >>  352 LOAD_DEREF               0 (self)
+            354 LOAD_ATTR                9 (traps_arrows)
+            364 GET_ITER
+        >>  366 FOR_ITER                29 (to 426)
+            368 STORE_FAST               7 (a)
+
+214         370 LOAD_FAST                7 (a)
+            372 LOAD_METHOD              4 (update)
+            394 LOAD_FAST                1 (dt)
+            396 LOAD_DEREF               0 (self)
+            398 LOAD_ATTR               10 (projectiles)
+            408 PRECALL                  2
+            412 CALL                     2
+            422 POP_TOP
+            424 JUMP_BACKWARD           30 (to 366)
+
+216     >>  426 LOAD_DEREF               0 (self)
+            428 LOAD_ATTR               11 (traps_poison)
+            438 GET_ITER
+        >>  440 FOR_ITER                40 (to 522)
+            442 STORE_FAST               8 (pz)
+
+217         444 LOAD_FAST                8 (pz)
+            446 LOAD_METHOD             12 (contains)
+            468 LOAD_FAST                2 (player)
+            470 LOAD_ATTR                6 (rect)
+            480 PRECALL                  1
+            484 CALL                     1
+            494 POP_JUMP_FORWARD_IF_FALSE    12 (to 520)
+            496 LOAD_FAST                2 (player)
+            498 LOAD_ATTR                8 (roll_invincible)
+            508 POP_JUMP_FORWARD_IF_TRUE     5 (to 520)
+
+218         510 LOAD_CONST               5 (True)
+            512 LOAD_FAST                3 (events)
+            514 LOAD_CONST               7 ('hit_player')
+            516 STORE_SUBSCR
+        >>  520 JUMP_BACKWARD           41 (to 440)
+
+220     >>  522 LOAD_DEREF               0 (self)
+            524 LOAD_ATTR               13 (alert_zones)
+            534 GET_ITER
+        >>  536 FOR_ITER                33 (to 604)
+            538 STORE_FAST               9 (az)
+
+221         540 LOAD_FAST                9 (az)
+            542 LOAD_METHOD             14 (overlaps)
+            564 LOAD_FAST                2 (player)
+            566 LOAD_ATTR                6 (rect)
+            576 PRECALL                  1
+            580 CALL                     1
+            590 POP_JUMP_FORWARD_IF_FALSE     5 (to 602)
+
+222         592 LOAD_CONST               5 (True)
+            594 LOAD_FAST                3 (events)
+            596 LOAD_CONST               8 ('alert_all')
+            598 STORE_SUBSCR
+        >>  602 JUMP_BACKWARD           34 (to 536)
+
+224     >>  604 LOAD_CLOSURE             0 (self)
+            606 BUILD_TUPLE              1
+            608 LOAD_CONST               9 (<code object <listcomp> at 0x0000021D0EC8CCF0, file "C:\Users\taha3\Desktop\fredus-jones-adventures\rooms\room.py", line 224>)
+            610 MAKE_FUNCTION            8 (closure)
+            612 LOAD_DEREF               0 (self)
+            614 LOAD_ATTR               10 (projectiles)
+            624 GET_ITER
+            626 PRECALL                  0
+            630 CALL                     0
+            640 LOAD_DEREF               0 (self)
+            642 STORE_ATTR              10 (projectiles)
+
+225         652 LOAD_DEREF               0 (self)
+            654 LOAD_ATTR               10 (projectiles)
+            664 GET_ITER
+        >>  666 FOR_ITER                66 (to 800)
+            668 STORE_FAST              10 (pr)
+
+226         670 LOAD_FAST               10 (pr)
+            672 LOAD_METHOD              4 (update)
+            694 LOAD_FAST                1 (dt)
+            696 PRECALL                  1
+            700 CALL                     1
+            710 POP_TOP
+
+227         712 LOAD_FAST               10 (pr)
+            714 LOAD_ATTR                6 (rect)
+            724 LOAD_METHOD              7 (colliderect)
+            746 LOAD_FAST                2 (player)
+            748 LOAD_ATTR                6 (rect)
+            758 PRECALL                  1
+            762 CALL                     1
+            772 POP_JUMP_FORWARD_IF_FALSE    12 (to 798)
+            774 LOAD_FAST                2 (player)
+            776 LOAD_ATTR                8 (roll_invincible)
+            786 POP_JUMP_FORWARD_IF_TRUE     5 (to 798)
+
+228         788 LOAD_CONST               5 (True)
+            790 LOAD_FAST                3 (events)
+            792 LOAD_CONST               7 ('hit_player')
+            794 STORE_SUBSCR
+        >>  798 JUMP_BACKWARD           67 (to 666)
+
+230     >>  800 LOAD_DEREF               0 (self)
+            802 LOAD_ATTR               15 (pressure_plates)
+            812 GET_ITER
+        >>  814 FOR_ITER                39 (to 894)
+            816 STORE_DEREF             11 (plate)
+
+231         818 LOAD_GLOBAL             33 (NULL + any)
+            830 LOAD_CLOSURE            11 (plate)
+            832 BUILD_TUPLE              1
+            834 LOAD_CONST              10 (<code object <genexpr> at 0x0000021D0EBA30F0, file "C:\Users\taha3\Desktop\fredus-jones-adventures\rooms\room.py", line 231>)
+            836 MAKE_FUNCTION            8 (closure)
+            838 LOAD_DEREF               0 (self)
+            840 LOAD_ATTR               17 (vases)
+            850 GET_ITER
+            852 PRECALL                  0
+            856 CALL                     0
+            866 PRECALL                  1
+            870 CALL                     1
+            880 LOAD_DEREF              11 (plate)
+            882 STORE_ATTR              18 (pressed)
+            892 JUMP_BACKWARD           40 (to 814)
+
+233     >>  894 LOAD_DEREF               0 (self)
+            896 LOAD_METHOD             19 (_check_lever_puzzle)
+            918 PRECALL                  0
+            922 CALL                     0
+            932 POP_TOP
+
+234         934 LOAD_DEREF               0 (self)
+            936 LOAD_METHOD             20 (_check_plates_puzzle)
+            958 PRECALL                  0
+            962 CALL                     0
+            972 POP_TOP
+
+235         974 LOAD_DEREF               0 (self)
+            976 LOAD_METHOD             21 (_check_treasure)
+            998 LOAD_FAST                2 (player)
+           1000 PRECALL                  1
+           1004 CALL                     1
+           1014 POP_TOP
+
+236        1016 LOAD_DEREF               0 (self)
+           1018 LOAD_METHOD             22 (_check_platform_exit)
+           1040 LOAD_FAST                2 (player)
+           1042 PRECALL                  1
+           1046 CALL                     1
+           1056 POP_TOP
+
+238        1058 LOAD_FAST                3 (events)
+           1060 RETURN_VALUE
+
+Disassembly of <code object <listcomp> at 0x0000021D0EC8CCF0, file "C:\Users\taha3\Desktop\fredus-jones-adventures\rooms\room.py", line 224>:
+              0 COPY_FREE_VARS           1
+
+224           2 RESUME                   0
+              4 BUILD_LIST               0
+              6 LOAD_FAST                0 (.0)
+        >>    8 FOR_ITER                38 (to 86)
+             10 STORE_FAST               1 (pr)
+             12 LOAD_CONST               0 (-50)
+             14 LOAD_FAST                1 (pr)
+             16 LOAD_ATTR                0 (rect)
+             26 LOAD_ATTR                1 (centerx)
+             36 SWAP                     2
+             38 COPY                     2
+             40 COMPARE_OP               0 (<)
+             46 POP_JUMP_FORWARD_IF_FALSE    14 (to 76)
+             48 LOAD_DEREF               2 (self)
+             50 LOAD_ATTR                2 (width)
+             60 LOAD_CONST               1 (50)
+             62 BINARY_OP                0 (+)
+             66 COMPARE_OP               0 (<)
+             72 POP_JUMP_BACKWARD_IF_FALSE    33 (to 8)
+             74 JUMP_FORWARD             2 (to 80)
+        >>   76 POP_TOP
+             78 JUMP_FORWARD             2 (to 84)
+        >>   80 LOAD_FAST                1 (pr)
+             82 LIST_APPEND              2
+        >>   84 JUMP_BACKWARD           39 (to 8)
+        >>   86 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x0000021D0EBA30F0, file "C:\Users\taha3\Desktop\fredus-jones-adventures\rooms\room.py", line 231>:
+              0 COPY_FREE_VARS           1
+
+231           2 RETURN_GENERATOR
+              4 POP_TOP
+              6 RESUME                   0
+              8 LOAD_FAST                0 (.0)
+        >>   10 FOR_ITER                55 (to 122)
+             12 STORE_FAST               1 (v)
+             14 LOAD_FAST                1 (v)
+             16 LOAD_ATTR                0 (rect)
+             26 LOAD_METHOD              1 (colliderect)
+             48 LOAD_DEREF               2 (plate)
+             50 LOAD_ATTR                0 (rect)
+             60 LOAD_METHOD              2 (inflate)
+             82 LOAD_CONST               0 (12)
+             84 LOAD_CONST               1 (20)
+             86 PRECALL                  2
+             90 CALL                     2
+            100 PRECALL                  1
+            104 CALL                     1
+            114 YIELD_VALUE
+            116 RESUME                   1
+            118 POP_TOP
+            120 JUMP_BACKWARD           56 (to 10)
+        >>  122 LOAD_CONST               2 (None)
+            124 RETURN_VALUE

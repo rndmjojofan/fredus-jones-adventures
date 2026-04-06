@@ -1,0 +1,7 @@
+('C:\\Users\\taha3\\Desktop\\fredus-jones-adventures\\data',
+ 'data',
+ [],
+ 'DATA',
+ [('data\\.gitkeep',
+   'C:\\Users\\taha3\\Desktop\\fredus-jones-adventures\\data\\.gitkeep',
+   'DATA')])

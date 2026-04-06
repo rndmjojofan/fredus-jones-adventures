@@ -1,0 +1,812 @@
+﻿pygame 2.6.1 (SDL 2.28.4, Python 3.11.0)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+284           0 RESUME                   0
+
+285           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (type)
+             14 LOAD_CONST               1 ('rest')
+             16 COMPARE_OP               2 (==)
+             22 POP_JUMP_FORWARD_IF_FALSE     2 (to 28)
+
+286          24 LOAD_CONST               2 (True)
+             26 RETURN_VALUE
+
+287     >>   28 LOAD_FAST                0 (self)
+             30 LOAD_ATTR                1 (puzzle_complete)
+             40 POP_JUMP_FORWARD_IF_FALSE     2 (to 46)
+
+288          42 LOAD_CONST               2 (True)
+             44 RETURN_VALUE
+
+289     >>   46 LOAD_FAST                0 (self)
+             48 LOAD_METHOD              2 (_all_enemies_dead)
+             70 PRECALL                  0
+             74 CALL                     0
+             84 POP_JUMP_FORWARD_IF_FALSE     2 (to 90)
+
+290          86 LOAD_CONST               2 (True)
+             88 RETURN_VALUE
+
+291     >>   90 LOAD_CONST               3 (False)
+             92 RETURN_VALUE
+---generate_content---
+ 83           0 RESUME                   0
+
+ 84           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (width)
+             14 LOAD_FAST                0 (self)
+             16 LOAD_ATTR                1 (height)
+             26 STORE_FAST               4 (h)
+             28 STORE_FAST               3 (w)
+
+ 85          30 LOAD_FAST                1 (difficulty)
+             32 LOAD_CONST               1 ('speed')
+             34 BINARY_SUBSCR
+             44 LOAD_FAST                0 (self)
+             46 STORE_ATTR               2 (_enemy_speed_mult)
+
+ 86          56 LOAD_GLOBAL              7 (NULL + max)
+             68 LOAD_CONST               2 (0)
+             70 LOAD_FAST                1 (difficulty)
+             72 LOAD_CONST               3 ('enemies')
+             74 BINARY_SUBSCR
+             84 LOAD_FAST                2 (extra_enemies)
+             86 BINARY_OP                0 (+)
+             90 PRECALL                  2
+             94 CALL                     2
+            104 STORE_FAST               5 (base_n)
+
+ 87         106 LOAD_GLOBAL              8 (TILE_SIZE)
+            118 LOAD_CONST               4 (2)
+            120 BINARY_OP                5 (*)
+            124 STORE_FAST               6 (margin)
+
+ 88         126 LOAD_GLOBAL             11 (NULL + pygame)
+            138 LOAD_ATTR                6 (Rect)
+            148 LOAD_FAST                0 (self)
+            150 LOAD_ATTR                7 (entry_xy)
+            160 LOAD_CONST               2 (0)
+            162 BINARY_SUBSCR
+            172 LOAD_CONST               5 (80)
+            174 BINARY_OP               10 (-)
+            178 LOAD_FAST                0 (self)
+            180 LOAD_ATTR                7 (entry_xy)
+            190 LOAD_CONST               6 (1)
+            192 BINARY_SUBSCR
+            202 LOAD_CONST               5 (80)
+            204 BINARY_OP               10 (-)
+            208 LOAD_CONST               7 (160)
+            210 LOAD_CONST               7 (160)
+            212 PRECALL                  4
+            216 CALL                     4
+            226 STORE_FAST               7 (avoid)
+
+ 90         228 LOAD_FAST                0 (self)
+            230 LOAD_ATTR                8 (type)
+            240 LOAD_CONST               8 ('puzzle')
+            242 COMPARE_OP               2 (==)
+            248 EXTENDED_ARG             2
+            250 POP_JUMP_FORWARD_IF_FALSE   643 (to 1538)
+
+ 91         252 LOAD_GLOBAL             19 (NULL + min)
+            264 LOAD_CONST               9 (3)
+            266 LOAD_GLOBAL             21 (NULL + int)
+            278 LOAD_FAST                1 (difficulty)
+            280 LOAD_METHOD             11 (get)
+            302 LOAD_CONST              10 ('levers')
+            304 LOAD_CONST               2 (0)
+            306 PRECALL                  2
+            310 CALL                     2
+            320 PRECALL                  1
+            324 CALL                     1
+            334 BINARY_OP                0 (+)
+            338 LOAD_CONST              11 (4)
+            340 PRECALL                  2
+            344 CALL                     2
+            354 STORE_FAST               8 (nlev)
+
+ 92         356 LOAD_GLOBAL             25 (NULL + list)
+            368 LOAD_GLOBAL             27 (NULL + range)
+            380 LOAD_FAST                8 (nlev)
+            382 PRECALL                  1
+            386 CALL                     1
+            396 PRECALL                  1
+            400 CALL                     1
+            410 STORE_FAST               9 (order)
+
+ 93         412 LOAD_FAST                0 (self)
+            414 LOAD_ATTR               14 (rng)
+            424 LOAD_METHOD             15 (shuffle)
+            446 LOAD_FAST                9 (order)
+            448 PRECALL                  1
+            452 CALL                     1
+            462 POP_TOP
+
+ 94         464 LOAD_FAST                9 (order)
+            466 LOAD_FAST                0 (self)
+            468 STORE_ATTR              16 (lever_sequence_correct)
+
+ 95         478 LOAD_CONST              12 (100)
+            480 STORE_FAST              10 (spacing)
+
+ 96         482 LOAD_FAST                3 (w)
+            484 LOAD_CONST               4 (2)
+            486 BINARY_OP                2 (//)
+            490 LOAD_FAST                8 (nlev)
+            492 LOAD_FAST               10 (spacing)
+            494 BINARY_OP                5 (*)
+            498 LOAD_CONST               4 (2)
+            500 BINARY_OP                2 (//)
+            504 BINARY_OP               10 (-)
+            508 STORE_FAST              11 (sx)
+
+ 97         510 LOAD_GLOBAL             27 (NULL + range)
+            522 LOAD_FAST                8 (nlev)
+            524 PRECALL                  1
+            528 CALL                     1
+            538 GET_ITER
+        >>  540 FOR_ITER                75 (to 692)
+            542 STORE_FAST              12 (i)
+
+ 98         544 LOAD_FAST                0 (self)
+            546 LOAD_ATTR               17 (levers)
+            556 LOAD_METHOD             18 (append)
+            578 LOAD_GLOBAL             39 (NULL + Lever)
+            590 LOAD_FAST               12 (i)
+            592 LOAD_GLOBAL             11 (NULL + pygame)
+            604 LOAD_ATTR                6 (Rect)
+            614 LOAD_FAST               11 (sx)
+            616 LOAD_FAST               12 (i)
+            618 LOAD_FAST               10 (spacing)
+            620 BINARY_OP                5 (*)
+            624 BINARY_OP                0 (+)
+            628 LOAD_FAST                4 (h)
+            630 LOAD_CONST               4 (2)
+            632 BINARY_OP                2 (//)
+            636 LOAD_CONST              13 (40)
+            638 BINARY_OP               10 (-)
+            642 LOAD_CONST              14 (24)
+            644 LOAD_CONST              15 (48)
+            646 PRECALL                  4
+            650 CALL                     4
+            660 PRECALL                  2
+            664 CALL                     2
+            674 PRECALL                  1
+            678 CALL                     1
+            688 POP_TOP
+            690 JUMP_BACKWARD           76 (to 540)
+
+ 99     >>  692 LOAD_FAST                0 (self)
+            694 LOAD_ATTR               20 (traps_spikes)
+            704 LOAD_METHOD             18 (append)
+            726 LOAD_GLOBAL             43 (NULL + SpikeTrap)
+            738 LOAD_GLOBAL             11 (NULL + pygame)
+            750 LOAD_ATTR                6 (Rect)
+            760 LOAD_FAST                3 (w)
+            762 LOAD_CONST               4 (2)
+            764 BINARY_OP                2 (//)
+            768 LOAD_CONST              13 (40)
+            770 BINARY_OP               10 (-)
+            774 LOAD_FAST                4 (h)
+            776 LOAD_CONST               4 (2)
+            778 BINARY_OP                2 (//)
+            782 LOAD_CONST              16 (120)
+            784 BINARY_OP                0 (+)
+            788 LOAD_CONST               5 (80)
+            790 LOAD_GLOBAL              8 (TILE_SIZE)
+            802 PRECALL                  4
+            806 CALL                     4
+            816 PRECALL                  1
+            820 CALL                     1
+            830 PRECALL                  1
+            834 CALL                     1
+            844 POP_TOP
+
+100         846 LOAD_GLOBAL              7 (NULL + max)
+            858 LOAD_CONST               6 (1)
+            860 LOAD_GLOBAL             19 (NULL + min)
+            872 LOAD_CONST               9 (3)
+            874 LOAD_CONST               6 (1)
+            876 LOAD_GLOBAL              7 (NULL + max)
+            888 LOAD_CONST               2 (0)
+            890 LOAD_FAST                5 (base_n)
+            892 LOAD_CONST               4 (2)
+            894 BINARY_OP                2 (//)
+            898 PRECALL                  2
+            902 CALL                     2
+            912 BINARY_OP                0 (+)
+            916 PRECALL                  2
+            920 CALL                     2
+            930 PRECALL                  2
+            934 CALL                     2
+            944 STORE_FAST              13 (puzzle_n)
+
+101         946 LOAD_FAST                0 (self)
+            948 LOAD_ATTR               22 (enemies)
+            958 LOAD_METHOD             23 (extend)
+
+102         980 LOAD_GLOBAL             49 (NULL + spawn_enemy_pack)
+            992 LOAD_GLOBAL             11 (NULL + pygame)
+           1004 LOAD_ATTR                6 (Rect)
+           1014 LOAD_CONST               2 (0)
+           1016 LOAD_CONST               2 (0)
+           1018 LOAD_FAST                3 (w)
+           1020 LOAD_FAST                4 (h)
+           1022 PRECALL                  4
+           1026 CALL                     4
+           1036 LOAD_FAST               13 (puzzle_n)
+           1038 LOAD_FAST                0 (self)
+           1040 LOAD_ATTR               14 (rng)
+           1050 LOAD_FAST                7 (avoid)
+           1052 PRECALL                  4
+           1056 CALL                     4
+
+101        1066 PRECALL                  1
+           1070 CALL                     1
+           1080 POP_TOP
+
+105        1082 LOAD_GLOBAL             19 (NULL + min)
+           1094 LOAD_CONST               4 (2)
+           1096 LOAD_GLOBAL             50 (MAX_VASES)
+           1108 PRECALL                  2
+           1112 CALL                     2
+           1122 STORE_FAST              14 (nv)
+
+106        1124 LOAD_GLOBAL             19 (NULL + min)
+           1136 LOAD_CONST               4 (2)
+           1138 LOAD_GLOBAL             52 (MAX_PLATES)
+           1150 PRECALL                  2
+           1154 CALL                     2
+           1164 STORE_FAST              15 (np)
+
+107        1166 LOAD_GLOBAL             27 (NULL + range)
+           1178 LOAD_FAST               14 (nv)
+           1180 PRECALL                  1
+           1184 CALL                     1
+           1194 GET_ITER
+        >> 1196 FOR_ITER                62 (to 1322)
+           1198 STORE_FAST              12 (i)
+
+108        1200 LOAD_FAST                0 (self)
+           1202 LOAD_ATTR               27 (vases)
+           1212 LOAD_METHOD             18 (append)
+           1234 LOAD_GLOBAL             57 (NULL + Vase)
+           1246 LOAD_FAST                6 (margin)
+           1248 LOAD_FAST               12 (i)
+           1250 LOAD_GLOBAL              8 (TILE_SIZE)
+           1262 BINARY_OP                5 (*)
+           1266 LOAD_CONST               4 (2)
+           1268 BINARY_OP                5 (*)
+           1272 BINARY_OP                0 (+)
+           1276 LOAD_FAST                4 (h)
+           1278 LOAD_CONST               4 (2)
+           1280 BINARY_OP                2 (//)
+           1284 LOAD_CONST              17 (60)
+           1286 BINARY_OP                0 (+)
+           1290 PRECALL                  2
+           1294 CALL                     2
+           1304 PRECALL                  1
+           1308 CALL                     1
+           1318 POP_TOP
+           1320 JUMP_BACKWARD           63 (to 1196)
+
+109     >> 1322 LOAD_GLOBAL             27 (NULL + range)
+           1334 LOAD_FAST               15 (np)
+           1336 PRECALL                  1
+           1340 CALL                     1
+           1350 GET_ITER
+        >> 1352 FOR_ITER                90 (to 1534)
+           1354 STORE_FAST              12 (i)
+
+110        1356 LOAD_FAST                0 (self)
+           1358 LOAD_ATTR               29 (pressure_plates)
+           1368 LOAD_METHOD             18 (append)
+
+111        1390 LOAD_GLOBAL             61 (NULL + PressurePlate)
+           1402 LOAD_GLOBAL             11 (NULL + pygame)
+           1414 LOAD_ATTR                6 (Rect)
+           1424 LOAD_FAST                6 (margin)
+           1426 LOAD_FAST               12 (i)
+           1428 LOAD_GLOBAL              8 (TILE_SIZE)
+           1440 BINARY_OP                5 (*)
+           1444 LOAD_CONST               4 (2)
+           1446 BINARY_OP                5 (*)
+           1450 BINARY_OP                0 (+)
+           1454 LOAD_FAST                4 (h)
+           1456 LOAD_CONST               4 (2)
+           1458 BINARY_OP                2 (//)
+           1462 LOAD_CONST              18 (130)
+           1464 BINARY_OP                0 (+)
+           1468 LOAD_GLOBAL              8 (TILE_SIZE)
+           1480 LOAD_CONST              19 (8)
+           1482 BINARY_OP               10 (-)
+           1486 LOAD_CONST              20 (14)
+           1488 PRECALL                  4
+           1492 CALL                     4
+           1502 PRECALL                  1
+           1506 CALL                     1
+
+110        1516 PRECALL                  1
+           1520 CALL                     1
+           1530 POP_TOP
+           1532 JUMP_BACKWARD           91 (to 1352)
+
+109     >> 1534 EXTENDED_ARG             3
+           1536 JUMP_FORWARD           948 (to 3434)
+
+114     >> 1538 LOAD_FAST                0 (self)
+           1540 LOAD_ATTR                8 (type)
+           1550 LOAD_CONST              21 ('stealth')
+           1552 COMPARE_OP               2 (==)
+           1558 EXTENDED_ARG             2
+           1560 POP_JUMP_FORWARD_IF_FALSE   543 (to 2648)
+
+115        1562 LOAD_GLOBAL             27 (NULL + range)
+           1574 LOAD_CONST              22 (5)
+           1576 PRECALL                  1
+           1580 CALL                     1
+           1590 GET_ITER
+        >> 1592 FOR_ITER                98 (to 1790)
+           1594 STORE_FAST              16 (_)
+
+116        1596 LOAD_FAST                0 (self)
+           1598 LOAD_ATTR               31 (obstacles)
+           1608 LOAD_METHOD             18 (append)
+
+117        1630 LOAD_GLOBAL             65 (NULL + make_bush)
+           1642 LOAD_FAST                0 (self)
+           1644 LOAD_ATTR               14 (rng)
+           1654 LOAD_METHOD             33 (randint)
+           1676 LOAD_FAST                6 (margin)
+           1678 LOAD_FAST                3 (w)
+           1680 LOAD_FAST                6 (margin)
+           1682 BINARY_OP               10 (-)
+           1686 PRECALL                  2
+           1690 CALL                     2
+           1700 LOAD_FAST                0 (self)
+           1702 LOAD_ATTR               14 (rng)
+           1712 LOAD_METHOD             33 (randint)
+           1734 LOAD_FAST                6 (margin)
+           1736 LOAD_FAST                4 (h)
+           1738 LOAD_FAST                6 (margin)
+           1740 BINARY_OP               10 (-)
+           1744 PRECALL                  2
+           1748 CALL                     2
+           1758 PRECALL                  2
+           1762 CALL                     2
+
+116        1772 PRECALL                  1
+           1776 CALL                     1
+           1786 POP_TOP
+           1788 JUMP_BACKWARD           99 (to 1592)
+
+119     >> 1790 LOAD_GLOBAL             27 (NULL + range)
+           1802 LOAD_CONST               9 (3)
+           1804 PRECALL                  1
+           1808 CALL                     1
+           1818 GET_ITER
+        >> 1820 FOR_ITER                98 (to 2018)
+           1822 STORE_FAST              16 (_)
+
+120        1824 LOAD_FAST                0 (self)
+           1826 LOAD_ATTR               31 (obstacles)
+           1836 LOAD_METHOD             18 (append)
+
+121        1858 LOAD_GLOBAL             69 (NULL + make_pillar)
+           1870 LOAD_FAST                0 (self)
+           1872 LOAD_ATTR               14 (rng)
+           1882 LOAD_METHOD             33 (randint)
+           1904 LOAD_FAST                6 (margin)
+           1906 LOAD_FAST                3 (w)
+           1908 LOAD_FAST                6 (margin)
+           1910 BINARY_OP               10 (-)
+           1914 PRECALL                  2
+           1918 CALL                     2
+           1928 LOAD_FAST                0 (self)
+           1930 LOAD_ATTR               14 (rng)
+           1940 LOAD_METHOD             33 (randint)
+           1962 LOAD_FAST                6 (margin)
+           1964 LOAD_FAST                4 (h)
+           1966 LOAD_FAST                6 (margin)
+           1968 BINARY_OP               10 (-)
+           1972 PRECALL                  2
+           1976 CALL                     2
+           1986 PRECALL                  2
+           1990 CALL                     2
+
+120        2000 PRECALL                  1
+           2004 CALL                     1
+           2014 POP_TOP
+           2016 JUMP_BACKWARD           99 (to 1820)
+
+123     >> 2018 LOAD_GLOBAL              7 (NULL + max)
+           2030 LOAD_CONST               4 (2)
+           2032 LOAD_GLOBAL             19 (NULL + min)
+           2044 LOAD_CONST              22 (5)
+           2046 LOAD_CONST               4 (2)
+           2048 LOAD_GLOBAL              7 (NULL + max)
+           2060 LOAD_CONST               2 (0)
+           2062 LOAD_FAST                5 (base_n)
+           2064 LOAD_CONST               4 (2)
+           2066 BINARY_OP                2 (//)
+           2070 PRECALL                  2
+           2074 CALL                     2
+           2084 BINARY_OP                0 (+)
+           2088 PRECALL                  2
+           2092 CALL                     2
+           2102 PRECALL                  2
+           2106 CALL                     2
+           2116 STORE_FAST              17 (stealth_n)
+
+124        2118 LOAD_FAST                0 (self)
+           2120 LOAD_ATTR               22 (enemies)
+           2130 LOAD_METHOD             23 (extend)
+
+125        2152 LOAD_GLOBAL             49 (NULL + spawn_enemy_pack)
+           2164 LOAD_GLOBAL             11 (NULL + pygame)
+           2176 LOAD_ATTR                6 (Rect)
+           2186 LOAD_CONST               2 (0)
+           2188 LOAD_CONST               2 (0)
+           2190 LOAD_FAST                3 (w)
+           2192 LOAD_FAST                4 (h)
+           2194 PRECALL                  4
+           2198 CALL                     4
+           2208 LOAD_FAST               17 (stealth_n)
+           2210 LOAD_FAST                0 (self)
+           2212 LOAD_ATTR               14 (rng)
+           2222 LOAD_FAST                7 (avoid)
+           2224 PRECALL                  4
+           2228 CALL                     4
+
+124        2238 PRECALL                  1
+           2242 CALL                     1
+           2252 POP_TOP
+
+127        2254 LOAD_FAST                0 (self)
+           2256 LOAD_ATTR               35 (alert_zones)
+           2266 LOAD_METHOD             18 (append)
+           2288 LOAD_GLOBAL             73 (NULL + AlertZone)
+           2300 LOAD_GLOBAL             11 (NULL + pygame)
+           2312 LOAD_ATTR                6 (Rect)
+           2322 LOAD_FAST                3 (w)
+           2324 LOAD_CONST               4 (2)
+           2326 BINARY_OP                2 (//)
+           2330 LOAD_CONST              23 (70)
+           2332 BINARY_OP               10 (-)
+           2336 LOAD_FAST                4 (h)
+           2338 LOAD_CONST               4 (2)
+           2340 BINARY_OP                2 (//)
+           2344 LOAD_CONST              23 (70)
+           2346 BINARY_OP               10 (-)
+           2350 LOAD_CONST              24 (140)
+           2352 LOAD_CONST              24 (140)
+           2354 PRECALL                  4
+           2358 CALL                     4
+           2368 PRECALL                  1
+           2372 CALL                     1
+           2382 PRECALL                  1
+           2386 CALL                     1
+           2396 POP_TOP
+
+128        2398 LOAD_FAST                0 (self)
+           2400 LOAD_ATTR               37 (traps_arrows)
+           2410 LOAD_METHOD             18 (append)
+           2432 LOAD_GLOBAL             77 (NULL + ArrowTrap)
+           2444 LOAD_GLOBAL             11 (NULL + pygame)
+           2456 LOAD_ATTR                6 (Rect)
+           2466 LOAD_GLOBAL              8 (TILE_SIZE)
+           2478 LOAD_FAST                4 (h)
+           2480 LOAD_CONST               9 (3)
+           2482 BINARY_OP                2 (//)
+           2486 LOAD_CONST              25 (32)
+           2488 LOAD_CONST              25 (32)
+           2490 PRECALL                  4
+           2494 CALL                     4
+           2504 LOAD_CONST              26 (True)
+           2506 KW_NAMES                27
+           2508 PRECALL                  2
+           2512 CALL                     2
+           2522 PRECALL                  1
+           2526 CALL                     1
+           2536 POP_TOP
+
+129        2538 LOAD_FAST                0 (self)
+           2540 LOAD_ATTR               39 (traps_poison)
+           2550 LOAD_METHOD             18 (append)
+           2572 LOAD_GLOBAL             81 (NULL + PoisonPool)
+           2584 LOAD_FAST                3 (w)
+           2586 LOAD_CONST               4 (2)
+           2588 BINARY_OP                2 (//)
+           2592 LOAD_FAST                4 (h)
+           2594 LOAD_CONST              28 (200)
+           2596 BINARY_OP               10 (-)
+           2600 BUILD_TUPLE              2
+           2602 LOAD_GLOBAL              8 (TILE_SIZE)
+           2614 PRECALL                  2
+           2618 CALL                     2
+           2628 PRECALL                  1
+           2632 CALL                     1
+           2642 POP_TOP
+           2644 EXTENDED_ARG             1
+           2646 JUMP_FORWARD           393 (to 3434)
+
+131     >> 2648 LOAD_FAST                0 (self)
+           2650 LOAD_ATTR                8 (type)
+           2660 LOAD_CONST              29 ('platform')
+           2662 COMPARE_OP               2 (==)
+           2668 POP_JUMP_FORWARD_IF_FALSE   191 (to 3052)
+
+132        2670 LOAD_CONST              30 (72.0)
+           2672 LOAD_FAST                0 (self)
+           2674 STORE_ATTR              41 (platform_timer)
+
+133        2684 LOAD_FAST                4 (h)
+           2686 LOAD_GLOBAL              8 (TILE_SIZE)
+           2698 LOAD_CONST               4 (2)
+           2700 BINARY_OP                5 (*)
+           2704 BINARY_OP               10 (-)
+           2708 STORE_FAST              18 (ground_y)
+
+135        2710 LOAD_GLOBAL             11 (NULL + pygame)
+           2722 LOAD_ATTR                6 (Rect)
+           2732 LOAD_CONST               2 (0)
+           2734 LOAD_FAST               18 (ground_y)
+           2736 LOAD_FAST                3 (w)
+           2738 LOAD_GLOBAL              8 (TILE_SIZE)
+           2750 PRECALL                  4
+           2754 CALL                     4
+
+136        2764 LOAD_GLOBAL             11 (NULL + pygame)
+           2776 LOAD_ATTR                6 (Rect)
+           2786 LOAD_CONST              31 (380)
+           2788 LOAD_FAST               18 (ground_y)
+           2790 LOAD_GLOBAL              8 (TILE_SIZE)
+           2802 LOAD_CONST              11 (4)
+           2804 BINARY_OP                5 (*)
+           2808 BINARY_OP               10 (-)
+           2812 LOAD_CONST              32 (220)
+           2814 LOAD_CONST              33 (18)
+           2816 PRECALL                  4
+           2820 CALL                     4
+
+137        2830 LOAD_GLOBAL             11 (NULL + pygame)
+           2842 LOAD_ATTR                6 (Rect)
+           2852 LOAD_CONST              34 (780)
+           2854 LOAD_FAST               18 (ground_y)
+           2856 LOAD_CONST              35 (90)
+           2858 BINARY_OP               10 (-)
+           2862 LOAD_CONST              28 (200)
+           2864 LOAD_CONST              33 (18)
+           2866 PRECALL                  4
+           2870 CALL                     4
+
+138        2880 LOAD_GLOBAL             11 (NULL + pygame)
+           2892 LOAD_ATTR                6 (Rect)
+           2902 LOAD_FAST                3 (w)
+           2904 LOAD_CONST              36 (240)
+           2906 BINARY_OP               10 (-)
+           2910 LOAD_FAST               18 (ground_y)
+           2912 LOAD_CONST              37 (170)
+           2914 BINARY_OP               10 (-)
+           2918 LOAD_CONST              38 (260)
+           2920 LOAD_CONST              33 (18)
+           2922 PRECALL                  4
+           2926 CALL                     4
+
+134        2936 BUILD_LIST               4
+           2938 LOAD_FAST                0 (self)
+           2940 STORE_ATTR              42 (platforms)
+
+140        2950 LOAD_GLOBAL             11 (NULL + pygame)
+           2962 LOAD_ATTR                6 (Rect)
+           2972 LOAD_FAST                3 (w)
+           2974 LOAD_GLOBAL              8 (TILE_SIZE)
+           2986 LOAD_CONST               4 (2)
+           2988 BINARY_OP                5 (*)
+           2992 BINARY_OP               10 (-)
+           2996 LOAD_FAST               18 (ground_y)
+           2998 LOAD_GLOBAL              8 (TILE_SIZE)
+           3010 LOAD_CONST              39 (7)
+           3012 BINARY_OP                5 (*)
+           3016 BINARY_OP               10 (-)
+           3020 LOAD_CONST              40 (56)
+           3022 LOAD_CONST              35 (90)
+           3024 PRECALL                  4
+           3028 CALL                     4
+           3038 LOAD_FAST                0 (self)
+           3040 STORE_ATTR              43 (exit_rect)
+           3050 JUMP_FORWARD           191 (to 3434)
+
+142     >> 3052 LOAD_FAST                0 (self)
+           3054 LOAD_ATTR                8 (type)
+           3064 LOAD_CONST              41 ('treasure')
+           3066 COMPARE_OP               2 (==)
+           3072 POP_JUMP_FORWARD_IF_FALSE    45 (to 3164)
+
+143        3074 LOAD_GLOBAL             11 (NULL + pygame)
+           3086 LOAD_ATTR                6 (Rect)
+           3096 LOAD_FAST                3 (w)
+           3098 LOAD_CONST               4 (2)
+           3100 BINARY_OP                2 (//)
+           3104 LOAD_CONST              14 (24)
+           3106 BINARY_OP               10 (-)
+           3110 LOAD_FAST                4 (h)
+           3112 LOAD_CONST               4 (2)
+           3114 BINARY_OP                2 (//)
+           3118 LOAD_CONST              15 (48)
+           3120 LOAD_CONST              13 (40)
+           3122 PRECALL                  4
+           3126 CALL                     4
+           3136 LOAD_FAST                0 (self)
+           3138 STORE_ATTR              44 (chest_rect)
+
+144        3148 LOAD_CONST              42 (False)
+           3150 LOAD_FAST                0 (self)
+           3152 STORE_ATTR              45 (puzzle_complete)
+           3162 JUMP_FORWARD           135 (to 3434)
+
+146     >> 3164 LOAD_FAST                0 (self)
+           3166 LOAD_ATTR                8 (type)
+           3176 LOAD_CONST              43 ('rest')
+           3178 COMPARE_OP               2 (==)
+           3184 POP_JUMP_FORWARD_IF_FALSE     8 (to 3202)
+
+147        3186 LOAD_CONST              26 (True)
+           3188 LOAD_FAST                0 (self)
+           3190 STORE_ATTR              45 (puzzle_complete)
+           3200 JUMP_FORWARD           116 (to 3434)
+
+150     >> 3202 LOAD_FAST                0 (self)
+           3204 LOAD_ATTR               22 (enemies)
+           3214 LOAD_METHOD             23 (extend)
+
+151        3236 LOAD_GLOBAL             49 (NULL + spawn_enemy_pack)
+           3248 LOAD_GLOBAL             11 (NULL + pygame)
+           3260 LOAD_ATTR                6 (Rect)
+           3270 LOAD_CONST               2 (0)
+           3272 LOAD_CONST               2 (0)
+           3274 LOAD_FAST                3 (w)
+           3276 LOAD_FAST                4 (h)
+           3278 PRECALL                  4
+           3282 CALL                     4
+           3292 LOAD_GLOBAL              7 (NULL + max)
+           3304 LOAD_CONST               6 (1)
+           3306 LOAD_GLOBAL             19 (NULL + min)
+           3318 LOAD_CONST              11 (4)
+           3320 LOAD_CONST               6 (1)
+           3322 LOAD_GLOBAL              7 (NULL + max)
+           3334 LOAD_CONST               2 (0)
+           3336 LOAD_FAST                5 (base_n)
+           3338 LOAD_CONST               4 (2)
+           3340 BINARY_OP                2 (//)
+           3344 PRECALL                  2
+           3348 CALL                     2
+           3358 BINARY_OP                0 (+)
+           3362 PRECALL                  2
+           3366 CALL                     2
+           3376 PRECALL                  2
+           3380 CALL                     2
+           3390 LOAD_FAST                0 (self)
+           3392 LOAD_ATTR               14 (rng)
+           3402 LOAD_FAST                7 (avoid)
+           3404 PRECALL                  4
+           3408 CALL                     4
+
+150        3418 PRECALL                  1
+           3422 CALL                     1
+           3432 POP_TOP
+
+154     >> 3434 LOAD_GLOBAL             93 (NULL + make_room_background)
+           3446 LOAD_FAST                0 (self)
+           3448 LOAD_ATTR                8 (type)
+           3458 LOAD_FAST                0 (self)
+           3460 LOAD_ATTR                0 (width)
+           3470 LOAD_FAST                0 (self)
+           3472 LOAD_ATTR                1 (height)
+           3482 PRECALL                  3
+           3486 CALL                     3
+           3496 LOAD_FAST                0 (self)
+           3498 STORE_ATTR              47 (background_surface)
+
+156        3508 LOAD_FAST                0 (self)
+           3510 LOAD_ATTR                8 (type)
+           3520 LOAD_CONST              44 (('puzzle', 'stealth'))
+           3522 CONTAINS_OP              0
+           3524 POP_JUMP_FORWARD_IF_FALSE   209 (to 3944)
+           3526 LOAD_FAST                0 (self)
+           3528 LOAD_ATTR               14 (rng)
+           3538 LOAD_METHOD             48 (random)
+           3560 PRECALL                  0
+           3564 CALL                     0
+           3574 LOAD_CONST              45 (0.45)
+           3576 COMPARE_OP               0 (<)
+           3582 POP_JUMP_FORWARD_IF_FALSE   182 (to 3948)
+
+157        3584 LOAD_CONST              26 (True)
+           3586 LOAD_FAST                0 (self)
+           3588 STORE_ATTR              49 (door_puzzle_active)
+
+159        3598 LOAD_GLOBAL            101 (NULL + Door)
+           3610 LOAD_GLOBAL             11 (NULL + pygame)
+           3622 LOAD_ATTR                6 (Rect)
+           3632 LOAD_FAST                3 (w)
+           3634 LOAD_CONST               4 (2)
+           3636 BINARY_OP                2 (//)
+           3640 LOAD_CONST              18 (130)
+           3642 BINARY_OP               10 (-)
+           3646 LOAD_FAST                4 (h)
+           3648 LOAD_CONST               4 (2)
+           3650 BINARY_OP                2 (//)
+           3654 LOAD_CONST              16 (120)
+           3656 BINARY_OP               10 (-)
+           3660 LOAD_CONST              46 (64)
+           3662 LOAD_CONST              47 (110)
+           3664 PRECALL                  4
+           3668 CALL                     4
+           3678 LOAD_CONST              26 (True)
+           3680 LOAD_CONST              26 (True)
+           3682 KW_NAMES                48
+           3684 PRECALL                  3
+           3688 CALL                     3
+
+160        3698 LOAD_GLOBAL            101 (NULL + Door)
+           3710 LOAD_GLOBAL             11 (NULL + pygame)
+           3722 LOAD_ATTR                6 (Rect)
+           3732 LOAD_FAST                3 (w)
+           3734 LOAD_CONST               4 (2)
+           3736 BINARY_OP                2 (//)
+           3740 LOAD_CONST              23 (70)
+           3742 BINARY_OP                0 (+)
+           3746 LOAD_FAST                4 (h)
+           3748 LOAD_CONST               4 (2)
+           3750 BINARY_OP                2 (//)
+           3754 LOAD_CONST              16 (120)
+           3756 BINARY_OP               10 (-)
+           3760 LOAD_CONST              46 (64)
+           3762 LOAD_CONST              47 (110)
+           3764 PRECALL                  4
+           3768 CALL                     4
+           3778 LOAD_CONST              26 (True)
+           3780 LOAD_CONST              42 (False)
+           3782 KW_NAMES                48
+           3784 PRECALL                  3
+           3788 CALL                     3
+
+158        3798 BUILD_LIST               2
+           3800 LOAD_FAST                0 (self)
+           3802 STORE_ATTR              51 (doors)
+
+162        3812 LOAD_FAST                0 (self)
+           3814 LOAD_ATTR               14 (rng)
+           3824 LOAD_METHOD             48 (random)
+           3846 PRECALL                  0
+           3850 CALL                     0
+           3860 LOAD_CONST              49 (0.5)
+           3862 COMPARE_OP               0 (<)
+           3868 POP_JUMP_FORWARD_IF_FALSE    41 (to 3952)
+
+163        3870 LOAD_FAST                0 (self)
+           3872 LOAD_ATTR               51 (doors)
+           3882 UNPACK_SEQUENCE          2
+           3886 STORE_FAST              19 (d0)
+           3888 STORE_FAST              20 (d1)
+
+164        3890 LOAD_FAST               20 (d1)
+           3892 LOAD_ATTR               52 (is_correct)
+           3902 LOAD_FAST               19 (d0)
+           3904 LOAD_ATTR               52 (is_correct)
+           3914 SWAP                     2
+           3916 LOAD_FAST               19 (d0)
+           3918 STORE_ATTR              52 (is_correct)
+           3928 LOAD_FAST               20 (d1)
+           3930 STORE_ATTR              52 (is_correct)
+           3940 LOAD_CONST               0 (None)
+           3942 RETURN_VALUE
+
+156     >> 3944 LOAD_CONST               0 (None)
+           3946 RETURN_VALUE
+        >> 3948 LOAD_CONST               0 (None)
+           3950 RETURN_VALUE
+
+162     >> 3952 LOAD_CONST               0 (None)
+           3954 RETURN_VALUE

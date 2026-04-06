@@ -1,0 +1,472 @@
+﻿pygame 2.6.1 (SDL 2.28.4, Python 3.11.0)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+ 99           0 RESUME                   0
+
+107           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (dead)
+             14 POP_JUMP_FORWARD_IF_FALSE     2 (to 20)
+
+108          16 LOAD_CONST               0 (None)
+             18 RETURN_VALUE
+
+109     >>   20 LOAD_FAST                0 (self)
+             22 LOAD_ATTR                1 (immobilize_timer)
+             32 LOAD_CONST               1 (0)
+             34 COMPARE_OP               4 (>)
+             40 POP_JUMP_FORWARD_IF_FALSE    18 (to 78)
+
+110          42 LOAD_FAST                0 (self)
+             44 COPY                     1
+             46 LOAD_ATTR                1 (immobilize_timer)
+             56 LOAD_FAST                1 (dt)
+             58 BINARY_OP               23 (-=)
+             62 SWAP                     2
+             64 STORE_ATTR               1 (immobilize_timer)
+
+111          74 LOAD_CONST               0 (None)
+             76 RETURN_VALUE
+
+113     >>   78 LOAD_FAST                0 (self)
+             80 LOAD_ATTR                2 (lamp_cooldown)
+             90 STORE_FAST               6 (prev_lamp_cd)
+
+114          92 LOAD_GLOBAL              7 (NULL + max)
+            104 LOAD_CONST               2 (0.0)
+            106 LOAD_FAST                0 (self)
+            108 LOAD_ATTR                2 (lamp_cooldown)
+            118 LOAD_FAST                1 (dt)
+            120 BINARY_OP               10 (-)
+            124 PRECALL                  2
+            128 CALL                     2
+            138 LOAD_FAST                0 (self)
+            140 STORE_ATTR               2 (lamp_cooldown)
+
+116         150 LOAD_FAST                6 (prev_lamp_cd)
+            152 LOAD_CONST               1 (0)
+            154 COMPARE_OP               4 (>)
+
+115         160 POP_JUMP_FORWARD_IF_FALSE    48 (to 258)
+
+117         162 LOAD_FAST                0 (self)
+            164 LOAD_ATTR                2 (lamp_cooldown)
+            174 LOAD_CONST               1 (0)
+            176 COMPARE_OP               1 (<=)
+
+115         182 POP_JUMP_FORWARD_IF_FALSE    37 (to 258)
+
+118         184 LOAD_GLOBAL              9 (NULL + any)
+            196 LOAD_CONST               3 (<code object <genexpr> at 0x000001CC794956F0, file "C:\Users\taha3\Desktop\fredus-jones-adventures\entities\player.py", line 118>)
+            198 MAKE_FUNCTION            0
+            200 LOAD_FAST                0 (self)
+            202 LOAD_ATTR                5 (passive_items)
+            212 GET_ITER
+            214 PRECALL                  0
+            218 CALL                     0
+            228 PRECALL                  1
+            232 CALL                     1
+
+115         242 POP_JUMP_FORWARD_IF_FALSE     7 (to 258)
+
+120         244 LOAD_CONST               4 (2)
+            246 LOAD_FAST                0 (self)
+            248 STORE_ATTR               6 (lamp_charges)
+
+121     >>  258 LOAD_GLOBAL              7 (NULL + max)
+            270 LOAD_CONST               2 (0.0)
+            272 LOAD_FAST                0 (self)
+            274 LOAD_ATTR                7 (roll_cooldown_timer)
+            284 LOAD_FAST                1 (dt)
+            286 BINARY_OP               10 (-)
+            290 PRECALL                  2
+            294 CALL                     2
+            304 LOAD_FAST                0 (self)
+            306 STORE_ATTR               7 (roll_cooldown_timer)
+
+122         316 LOAD_GLOBAL              7 (NULL + max)
+            328 LOAD_CONST               2 (0.0)
+            330 LOAD_FAST                0 (self)
+            332 LOAD_ATTR                8 (hurt_flash)
+            342 LOAD_FAST                1 (dt)
+            344 BINARY_OP               10 (-)
+            348 PRECALL                  2
+            352 CALL                     2
+            362 LOAD_FAST                0 (self)
+            364 STORE_ATTR               8 (hurt_flash)
+
+123         374 LOAD_FAST                0 (self)
+            376 LOAD_ATTR                9 (invis_timer)
+            386 LOAD_CONST               1 (0)
+            388 COMPARE_OP               4 (>)
+            394 POP_JUMP_FORWARD_IF_FALSE    34 (to 464)
+
+124         396 LOAD_FAST                0 (self)
+            398 COPY                     1
+            400 LOAD_ATTR                9 (invis_timer)
+            410 LOAD_FAST                1 (dt)
+            412 BINARY_OP               23 (-=)
+            416 SWAP                     2
+            418 STORE_ATTR               9 (invis_timer)
+
+125         428 LOAD_FAST                0 (self)
+            430 LOAD_ATTR                9 (invis_timer)
+            440 LOAD_CONST               1 (0)
+            442 COMPARE_OP               1 (<=)
+            448 POP_JUMP_FORWARD_IF_FALSE     7 (to 464)
+
+126         450 LOAD_CONST               5 (False)
+            452 LOAD_FAST                0 (self)
+            454 STORE_ATTR              10 (is_invisible)
+
+128     >>  464 LOAD_GLOBAL              7 (NULL + max)
+            476 LOAD_CONST               2 (0.0)
+            478 LOAD_FAST                0 (self)
+            480 LOAD_ATTR               11 (noise_level)
+            490 LOAD_GLOBAL             24 (NOISE_DECAY)
+            502 LOAD_FAST                1 (dt)
+            504 BINARY_OP                5 (*)
+            508 BINARY_OP               10 (-)
+            512 PRECALL                  2
+            516 CALL                     2
+            526 LOAD_FAST                0 (self)
+            528 STORE_ATTR              11 (noise_level)
+
+130         538 LOAD_GLOBAL             27 (NULL + vector_from_keys)
+            550 LOAD_FAST                2 (keys)
+            552 PRECALL                  1
+            556 CALL                     1
+            566 STORE_FAST               7 (direction)
+
+131         568 LOAD_FAST                7 (direction)
+            570 LOAD_METHOD             14 (length_squared)
+            592 PRECALL                  0
+            596 CALL                     0
+            606 LOAD_CONST               1 (0)
+            608 COMPARE_OP               4 (>)
+            614 POP_JUMP_FORWARD_IF_FALSE    60 (to 736)
+
+132         616 LOAD_GLOBAL             31 (NULL + vec_to_facing)
+            628 LOAD_FAST                7 (direction)
+            630 PRECALL                  1
+            634 CALL                     1
+            644 LOAD_FAST                0 (self)
+            646 STORE_ATTR              16 (facing)
+
+133         656 LOAD_GLOBAL             35 (NULL + abs)
+            668 LOAD_FAST                7 (direction)
+            670 LOAD_ATTR               18 (x)
+            680 PRECALL                  1
+            684 CALL                     1
+            694 LOAD_CONST               6 (0.01)
+            696 COMPARE_OP               4 (>)
+            702 POP_JUMP_FORWARD_IF_FALSE    16 (to 736)
+
+134         704 LOAD_FAST                7 (direction)
+            706 LOAD_ATTR               18 (x)
+            716 LOAD_CONST               1 (0)
+            718 COMPARE_OP               0 (<)
+            724 LOAD_FAST                0 (self)
+            726 STORE_ATTR              19 (sprite_flip)
+
+136     >>  736 LOAD_FAST                0 (self)
+            738 LOAD_ATTR               20 (is_platforming)
+            748 POP_JUMP_FORWARD_IF_TRUE    26 (to 802)
+
+137         750 LOAD_FAST                0 (self)
+            752 LOAD_METHOD             21 (_update_topdown)
+            774 LOAD_FAST                1 (dt)
+            776 LOAD_FAST                2 (keys)
+            778 LOAD_FAST                7 (direction)
+            780 LOAD_FAST                3 (obstacles)
+            782 LOAD_FAST                5 (particles)
+            784 PRECALL                  5
+            788 CALL                     5
+            798 POP_TOP
+            800 JUMP_FORWARD            23 (to 848)
+
+139     >>  802 LOAD_FAST                0 (self)
+            804 LOAD_METHOD             22 (_update_platform)
+            826 LOAD_FAST                1 (dt)
+            828 LOAD_FAST                2 (keys)
+            830 LOAD_FAST                3 (obstacles)
+            832 PRECALL                  3
+            836 CALL                     3
+            846 POP_TOP
+
+142     >>  848 LOAD_FAST                0 (self)
+            850 LOAD_ATTR               20 (is_platforming)
+            860 POP_JUMP_FORWARD_IF_TRUE    25 (to 912)
+            862 LOAD_FAST                0 (self)
+            864 LOAD_ATTR               23 (velocity)
+            874 LOAD_METHOD             24 (length)
+            896 PRECALL                  0
+            900 CALL                     0
+            910 JUMP_FORWARD            45 (to 1002)
+        >>  912 LOAD_GLOBAL             35 (NULL + abs)
+            924 LOAD_FAST                0 (self)
+            926 LOAD_ATTR               25 (jump_velocity)
+            936 PRECALL                  1
+            940 CALL                     1
+            950 LOAD_GLOBAL             35 (NULL + abs)
+            962 LOAD_FAST                0 (self)
+            964 LOAD_ATTR               23 (velocity)
+            974 LOAD_ATTR               18 (x)
+            984 PRECALL                  1
+            988 CALL                     1
+            998 BINARY_OP                0 (+)
+        >> 1002 STORE_FAST               8 (vel_len)
+
+143        1004 LOAD_CONST               5 (False)
+           1006 LOAD_FAST                0 (self)
+           1008 STORE_ATTR              26 (is_hidden)
+
+144        1018 LOAD_FAST                8 (vel_len)
+           1020 LOAD_CONST               7 (5.0)
+           1022 COMPARE_OP               0 (<)
+           1028 POP_JUMP_FORWARD_IF_FALSE    40 (to 1110)
+
+145        1030 LOAD_FAST                4 (hide_rects)
+           1032 GET_ITER
+        >> 1034 FOR_ITER                37 (to 1110)
+           1036 STORE_FAST               9 (h)
+
+146        1038 LOAD_FAST                0 (self)
+           1040 LOAD_ATTR               27 (rect)
+           1050 LOAD_METHOD             28 (colliderect)
+           1072 LOAD_FAST                9 (h)
+           1074 PRECALL                  1
+           1078 CALL                     1
+           1088 POP_JUMP_FORWARD_IF_FALSE     9 (to 1108)
+
+147        1090 LOAD_CONST               8 (True)
+           1092 LOAD_FAST                0 (self)
+           1094 STORE_ATTR              26 (is_hidden)
+
+148        1104 POP_TOP
+           1106 JUMP_FORWARD             1 (to 1110)
+
+146     >> 1108 JUMP_BACKWARD           38 (to 1034)
+
+150     >> 1110 LOAD_FAST                0 (self)
+           1112 LOAD_METHOD             29 (_sync_noise_items)
+           1134 PRECALL                  0
+           1138 CALL                     0
+           1148 POP_TOP
+
+151        1150 LOAD_FAST                0 (self)
+           1152 LOAD_ATTR               30 (pos)
+           1162 LOAD_METHOD             31 (update)
+           1184 LOAD_FAST                0 (self)
+           1186 LOAD_ATTR               27 (rect)
+           1196 LOAD_ATTR               18 (x)
+           1206 LOAD_FAST                0 (self)
+           1208 LOAD_ATTR               27 (rect)
+           1218 LOAD_ATTR               32 (y)
+           1228 PRECALL                  2
+           1232 CALL                     2
+           1242 POP_TOP
+
+153        1244 LOAD_FAST                0 (self)
+           1246 COPY                     1
+           1248 LOAD_ATTR               33 (_anim_t)
+           1258 LOAD_FAST                1 (dt)
+           1260 BINARY_OP               13 (+=)
+           1264 SWAP                     2
+           1266 STORE_ATTR              33 (_anim_t)
+
+154        1276 LOAD_FAST                0 (self)
+           1278 LOAD_ATTR                8 (hurt_flash)
+           1288 LOAD_CONST               1 (0)
+           1290 COMPARE_OP               4 (>)
+           1296 POP_JUMP_FORWARD_IF_FALSE     8 (to 1314)
+
+155        1298 LOAD_CONST               9 ('hurt')
+           1300 LOAD_FAST                0 (self)
+           1302 STORE_ATTR              34 (_anim_name)
+           1312 JUMP_FORWARD           223 (to 1760)
+
+156     >> 1314 LOAD_FAST                0 (self)
+           1316 LOAD_ATTR               35 (is_rolling)
+           1326 POP_JUMP_FORWARD_IF_FALSE     8 (to 1344)
+
+157        1328 LOAD_CONST              10 ('roll')
+           1330 LOAD_FAST                0 (self)
+           1332 STORE_ATTR              34 (_anim_name)
+           1342 JUMP_FORWARD           208 (to 1760)
+
+158     >> 1344 LOAD_FAST                0 (self)
+           1346 LOAD_ATTR               20 (is_platforming)
+           1356 POP_JUMP_FORWARD_IF_FALSE    60 (to 1478)
+
+159        1358 LOAD_FAST                0 (self)
+           1360 LOAD_ATTR               36 (on_ground)
+           1370 POP_JUMP_FORWARD_IF_TRUE     8 (to 1388)
+
+160        1372 LOAD_CONST              11 ('jump')
+           1374 LOAD_FAST                0 (self)
+           1376 STORE_ATTR              34 (_anim_name)
+           1386 JUMP_FORWARD           186 (to 1760)
+
+161     >> 1388 LOAD_GLOBAL             35 (NULL + abs)
+           1400 LOAD_FAST                0 (self)
+           1402 LOAD_ATTR               23 (velocity)
+           1412 LOAD_ATTR               18 (x)
+           1422 PRECALL                  1
+           1426 CALL                     1
+           1436 LOAD_CONST              12 (25)
+           1438 COMPARE_OP               4 (>)
+           1444 POP_JUMP_FORWARD_IF_FALSE     8 (to 1462)
+
+162        1446 LOAD_CONST              13 ('run')
+           1448 LOAD_FAST                0 (self)
+           1450 STORE_ATTR              34 (_anim_name)
+           1460 JUMP_FORWARD           149 (to 1760)
+
+164     >> 1462 LOAD_CONST              14 ('idle')
+           1464 LOAD_FAST                0 (self)
+           1466 STORE_ATTR              34 (_anim_name)
+           1476 JUMP_FORWARD           141 (to 1760)
+
+166     >> 1478 LOAD_FAST                0 (self)
+           1480 LOAD_ATTR               37 (upgrades)
+           1490 LOAD_METHOD             38 (get)
+           1512 LOAD_CONST              15 ('speed_boost')
+           1514 PRECALL                  1
+           1518 CALL                     1
+           1528 JUMP_IF_TRUE_OR_POP     29 (to 1588)
+           1530 LOAD_GLOBAL              9 (NULL + any)
+           1542 LOAD_CONST              16 (<code object <genexpr> at 0x000001CC79495370, file "C:\Users\taha3\Desktop\fredus-jones-adventures\entities\player.py", line 166>)
+           1544 MAKE_FUNCTION            0
+
+167        1546 LOAD_FAST                0 (self)
+           1548 LOAD_ATTR                5 (passive_items)
+
+166        1558 GET_ITER
+           1560 PRECALL                  0
+           1564 CALL                     0
+           1574 PRECALL                  1
+           1578 CALL                     1
+        >> 1588 STORE_FAST              10 (spd_boost)
+
+169        1590 LOAD_FAST                0 (self)
+           1592 LOAD_ATTR               23 (velocity)
+           1602 LOAD_METHOD             14 (length_squared)
+           1624 PRECALL                  0
+           1628 CALL                     0
+           1638 LOAD_CONST              17 (900)
+           1640 COMPARE_OP               4 (>)
+           1646 POP_JUMP_FORWARD_IF_FALSE    12 (to 1672)
+
+170        1648 LOAD_FAST               10 (spd_boost)
+           1650 POP_JUMP_FORWARD_IF_FALSE     2 (to 1656)
+           1652 LOAD_CONST              13 ('run')
+           1654 JUMP_FORWARD             1 (to 1658)
+        >> 1656 LOAD_CONST              18 ('walk')
+        >> 1658 LOAD_FAST                0 (self)
+           1660 STORE_ATTR              34 (_anim_name)
+           1670 JUMP_FORWARD            44 (to 1760)
+
+171     >> 1672 LOAD_FAST                0 (self)
+           1674 LOAD_ATTR               23 (velocity)
+           1684 LOAD_METHOD             14 (length_squared)
+           1706 PRECALL                  0
+           1710 CALL                     0
+           1720 LOAD_CONST              19 (120)
+           1722 COMPARE_OP               4 (>)
+           1728 POP_JUMP_FORWARD_IF_FALSE     8 (to 1746)
+
+172        1730 LOAD_CONST              18 ('walk')
+           1732 LOAD_FAST                0 (self)
+           1734 STORE_ATTR              34 (_anim_name)
+           1744 JUMP_FORWARD             7 (to 1760)
+
+174     >> 1746 LOAD_CONST              14 ('idle')
+           1748 LOAD_FAST                0 (self)
+           1750 STORE_ATTR              34 (_anim_name)
+
+175     >> 1760 LOAD_FAST                0 (self)
+           1762 LOAD_ATTR               34 (_anim_name)
+           1772 LOAD_CONST              18 ('walk')
+           1774 COMPARE_OP               2 (==)
+           1780 POP_JUMP_FORWARD_IF_FALSE    33 (to 1848)
+
+176        1782 LOAD_GLOBAL             79 (NULL + int)
+           1794 LOAD_FAST                0 (self)
+           1796 LOAD_ATTR               33 (_anim_t)
+           1806 LOAD_CONST              20 (7)
+           1808 BINARY_OP                5 (*)
+           1812 PRECALL                  1
+           1816 CALL                     1
+           1826 LOAD_CONST              21 (4)
+           1828 BINARY_OP                6 (%)
+           1832 LOAD_FAST                0 (self)
+           1834 STORE_ATTR              40 (_anim_frame)
+           1844 LOAD_CONST               0 (None)
+           1846 RETURN_VALUE
+
+177     >> 1848 LOAD_FAST                0 (self)
+           1850 LOAD_ATTR               34 (_anim_name)
+           1860 LOAD_CONST              13 ('run')
+           1862 COMPARE_OP               2 (==)
+           1868 POP_JUMP_FORWARD_IF_FALSE    33 (to 1936)
+
+178        1870 LOAD_GLOBAL             79 (NULL + int)
+           1882 LOAD_FAST                0 (self)
+           1884 LOAD_ATTR               33 (_anim_t)
+           1894 LOAD_CONST              22 (10)
+           1896 BINARY_OP                5 (*)
+           1900 PRECALL                  1
+           1904 CALL                     1
+           1914 LOAD_CONST              23 (3)
+           1916 BINARY_OP                6 (%)
+           1920 LOAD_FAST                0 (self)
+           1922 STORE_ATTR              40 (_anim_frame)
+           1932 LOAD_CONST               0 (None)
+           1934 RETURN_VALUE
+
+180     >> 1936 LOAD_CONST               1 (0)
+           1938 LOAD_FAST                0 (self)
+           1940 STORE_ATTR              40 (_anim_frame)
+           1950 LOAD_CONST               0 (None)
+           1952 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x000001CC794956F0, file "C:\Users\taha3\Desktop\fredus-jones-adventures\entities\player.py", line 118>:
+118           0 RETURN_GENERATOR
+              2 POP_TOP
+              4 RESUME                   0
+              6 LOAD_FAST                0 (.0)
+        >>    8 FOR_ITER                12 (to 34)
+             10 STORE_FAST               1 (p)
+             12 LOAD_FAST                1 (p)
+             14 POP_JUMP_BACKWARD_IF_FALSE     4 (to 8)
+             16 LOAD_FAST                1 (p)
+             18 LOAD_CONST               0 ('amulette_lumineuse')
+             20 COMPARE_OP               2 (==)
+             26 YIELD_VALUE
+             28 RESUME                   1
+             30 POP_TOP
+             32 JUMP_BACKWARD           13 (to 8)
+        >>   34 LOAD_CONST               1 (None)
+             36 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x000001CC79495370, file "C:\Users\taha3\Desktop\fredus-jones-adventures\entities\player.py", line 166>:
+166           0 RETURN_GENERATOR
+              2 POP_TOP
+              4 RESUME                   0
+              6 LOAD_FAST                0 (.0)
+        >>    8 FOR_ITER                12 (to 34)
+
+167          10 STORE_FAST               1 (p)
+             12 LOAD_FAST                1 (p)
+
+166          14 POP_JUMP_BACKWARD_IF_FALSE     4 (to 8)
+
+167          16 LOAD_FAST                1 (p)
+             18 LOAD_CONST               0 ('bottes_vitesse')
+             20 COMPARE_OP               2 (==)
+
+166          26 YIELD_VALUE
+             28 RESUME                   1
+             30 POP_TOP
+             32 JUMP_BACKWARD           13 (to 8)
+        >>   34 LOAD_CONST               1 (None)
+             36 RETURN_VALUE

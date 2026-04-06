@@ -1,0 +1,450 @@
+﻿pygame 2.6.1 (SDL 2.28.4, Python 3.11.0)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+==== _start_run ====
+ 71           0 RESUME                   0
+
+ 72           2 LOAD_GLOBAL              1 (NULL + SaveManager)
+             14 LOAD_ATTR                1 (load_game)
+             24 PRECALL                  0
+             28 CALL                     0
+             38 LOAD_FAST                0 (self)
+             40 STORE_ATTR               2 (save_data)
+
+ 73          50 LOAD_GLOBAL              7 (NULL + RoomGenerator)
+             62 LOAD_GLOBAL              9 (NULL + random)
+             74 LOAD_ATTR                5 (randint)
+             84 LOAD_CONST               1 (0)
+             86 LOAD_CONST               2 (999999)
+             88 PRECALL                  2
+             92 CALL                     2
+            102 PRECALL                  1
+            106 CALL                     1
+            116 STORE_FAST               1 (gen)
+
+ 74         118 LOAD_FAST                1 (gen)
+            120 LOAD_METHOD              6 (generate_run)
+            142 LOAD_GLOBAL             14 (TOTAL_ROOMS)
+            154 PRECALL                  1
+            158 CALL                     1
+            168 LOAD_FAST                0 (self)
+            170 STORE_ATTR               8 (rooms)
+
+ 75         180 LOAD_CONST               1 (0)
+            182 LOAD_FAST                0 (self)
+            184 STORE_ATTR               9 (room_index)
+
+ 76         194 LOAD_CONST               1 (0)
+            196 LOAD_FAST                0 (self)
+            198 STORE_ATTR              10 (run_rooms_cleared)
+
+ 77         208 LOAD_CONST               1 (0)
+            210 LOAD_FAST                0 (self)
+            212 STORE_ATTR              11 (run_kills)
+
+ 78         222 LOAD_CONST               1 (0)
+            224 LOAD_FAST                0 (self)
+            226 STORE_ATTR              12 (run_pacifist_rooms)
+
+ 79         236 LOAD_CONST               1 (0)
+            238 LOAD_FAST                0 (self)
+            240 STORE_ATTR              13 (pending_extra_enemies)
+
+ 80         250 LOAD_FAST                0 (self)
+            252 LOAD_METHOD             14 (_load_room)
+            274 PRECALL                  0
+            278 CALL                     0
+            288 POP_TOP
+
+ 81         290 LOAD_CONST               3 ('playing')
+            292 LOAD_FAST                0 (self)
+            294 STORE_ATTR              15 (state)
+
+ 82         304 LOAD_FAST                0 (self)
+            306 LOAD_ATTR               16 (music)
+            316 LOAD_METHOD             17 (play)
+            338 LOAD_CONST               4 ('exploration')
+            340 PRECALL                  1
+            344 CALL                     1
+            354 POP_TOP
+            356 LOAD_CONST               0 (None)
+            358 RETURN_VALUE
+==== _load_room ====
+ 84           0 RESUME                   0
+
+ 85           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (rooms)
+             14 POP_JUMP_FORWARD_IF_TRUE     2 (to 20)
+
+ 86          16 LOAD_CONST               0 (None)
+             18 RETURN_VALUE
+
+ 87     >>   20 LOAD_FAST                0 (self)
+             22 LOAD_ATTR                0 (rooms)
+             32 LOAD_FAST                0 (self)
+             34 LOAD_ATTR                1 (room_index)
+             44 BINARY_SUBSCR
+             54 LOAD_FAST                0 (self)
+             56 STORE_ATTR               2 (room)
+
+ 88          66 LOAD_FAST                0 (self)
+             68 LOAD_ATTR                3 (pending_extra_enemies)
+             78 LOAD_CONST               1 (0)
+             80 COMPARE_OP               4 (>)
+             86 POP_JUMP_FORWARD_IF_FALSE   171 (to 430)
+             88 LOAD_FAST                0 (self)
+             90 LOAD_ATTR                2 (room)
+            100 POP_JUMP_FORWARD_IF_NONE   164 (to 430)
+
+ 89         102 LOAD_FAST                0 (self)
+            104 LOAD_ATTR                3 (pending_extra_enemies)
+            114 STORE_FAST               1 (extra)
+
+ 90         116 LOAD_CONST               1 (0)
+            118 LOAD_FAST                0 (self)
+            120 STORE_ATTR               3 (pending_extra_enemies)
+
+ 91         130 LOAD_FAST                0 (self)
+            132 LOAD_ATTR                2 (room)
+            142 LOAD_METHOD              4 (bounds_rect)
+            164 PRECALL                  0
+            168 CALL                     0
+            178 STORE_FAST               2 (b)
+
+ 92         180 LOAD_GLOBAL             11 (NULL + pygame)
+            192 LOAD_ATTR                6 (Rect)
+            202 LOAD_FAST                0 (self)
+            204 LOAD_ATTR                2 (room)
+            214 LOAD_ATTR                7 (entry_xy)
+            224 LOAD_CONST               1 (0)
+            226 BINARY_SUBSCR
+            236 LOAD_CONST               2 (80)
+            238 BINARY_OP               10 (-)
+            242 LOAD_FAST                0 (self)
+            244 LOAD_ATTR                2 (room)
+            254 LOAD_ATTR                7 (entry_xy)
+            264 LOAD_CONST               3 (1)
+            266 BINARY_SUBSCR
+            276 LOAD_CONST               2 (80)
+            278 BINARY_OP               10 (-)
+            282 LOAD_CONST               4 (160)
+            284 LOAD_CONST               4 (160)
+            286 PRECALL                  4
+            290 CALL                     4
+            300 STORE_FAST               3 (avoid)
+
+ 93         302 LOAD_FAST                0 (self)
+            304 LOAD_ATTR                2 (room)
+            314 LOAD_ATTR                8 (enemies)
+            324 LOAD_METHOD              9 (extend)
+
+ 94         346 LOAD_GLOBAL             21 (NULL + spawn_enemy_pack)
+            358 LOAD_FAST                2 (b)
+            360 LOAD_FAST                1 (extra)
+            362 LOAD_GLOBAL             23 (NULL + random)
+            374 LOAD_ATTR               12 (Random)
+            384 PRECALL                  0
+            388 CALL                     0
+            398 LOAD_FAST                3 (avoid)
+            400 PRECALL                  4
+            404 CALL                     4
+
+ 93         414 PRECALL                  1
+            418 CALL                     1
+            428 POP_TOP
+
+ 96     >>  430 LOAD_FAST                0 (self)
+            432 LOAD_ATTR                2 (room)
+            442 POP_JUMP_FORWARD_IF_NOT_NONE     2 (to 448)
+            444 LOAD_ASSERTION_ERROR
+            446 RAISE_VARARGS            1
+
+ 97     >>  448 LOAD_FAST                0 (self)
+            450 LOAD_ATTR               13 (save_data)
+            460 LOAD_METHOD             14 (get)
+            482 LOAD_CONST               5 ('upgrades')
+            484 BUILD_MAP                0
+            486 PRECALL                  2
+            490 CALL                     2
+            500 STORE_FAST               4 (up)
+
+ 98         502 LOAD_GLOBAL             31 (NULL + Player)
+            514 LOAD_FAST                0 (self)
+            516 LOAD_ATTR                2 (room)
+            526 LOAD_ATTR                7 (entry_xy)
+            536 LOAD_CONST               1 (0)
+            538 BINARY_SUBSCR
+            548 LOAD_CONST               6 (16)
+            550 BINARY_OP               10 (-)
+            554 LOAD_FAST                0 (self)
+            556 LOAD_ATTR                2 (room)
+            566 LOAD_ATTR                7 (entry_xy)
+            576 LOAD_CONST               3 (1)
+            578 BINARY_SUBSCR
+            588 LOAD_CONST               6 (16)
+            590 BINARY_OP               10 (-)
+            594 LOAD_GLOBAL             33 (NULL + dict)
+            606 LOAD_FAST                4 (up)
+            608 PRECALL                  1
+            612 CALL                     1
+            622 KW_NAMES                 7
+            624 PRECALL                  3
+            628 CALL                     3
+            638 LOAD_FAST                0 (self)
+            640 STORE_ATTR              17 (player)
+
+ 99         650 LOAD_FAST                0 (self)
+            652 LOAD_ATTR               17 (player)
+            662 LOAD_METHOD             18 (on_room_enter)
+            684 PRECALL                  0
+            688 CALL                     0
+            698 POP_TOP
+
+100         700 LOAD_FAST                0 (self)
+            702 LOAD_ATTR               17 (player)
+            712 STORE_FAST               5 (pl)
+
+101         714 LOAD_FAST                0 (self)
+            716 LOAD_ATTR                2 (room)
+            726 LOAD_ATTR               19 (type)
+            736 LOAD_CONST               8 ('platform')
+            738 COMPARE_OP               2 (==)
+            744 LOAD_FAST                5 (pl)
+            746 STORE_ATTR              20 (is_platforming)
+
+102         756 LOAD_FAST                0 (self)
+            758 LOAD_ATTR                2 (room)
+            768 LOAD_ATTR                7 (entry_xy)
+            778 LOAD_CONST               1 (0)
+            780 BINARY_SUBSCR
+            790 LOAD_FAST                0 (self)
+            792 LOAD_ATTR                2 (room)
+            802 LOAD_ATTR                7 (entry_xy)
+            812 LOAD_CONST               3 (1)
+            814 BINARY_SUBSCR
+            824 BUILD_TUPLE              2
+            826 LOAD_FAST                5 (pl)
+            828 LOAD_ATTR               21 (rect)
+            838 STORE_ATTR              22 (center)
+
+103         848 LOAD_FAST                5 (pl)
+            850 LOAD_ATTR               23 (pos)
+            860 LOAD_METHOD             24 (update)
+            882 LOAD_FAST                5 (pl)
+            884 LOAD_ATTR               21 (rect)
+            894 LOAD_ATTR               25 (topleft)
+            904 PRECALL                  1
+            908 CALL                     1
+            918 POP_TOP
+
+104         920 LOAD_FAST                0 (self)
+            922 LOAD_ATTR               26 (camera)
+            932 LOAD_METHOD             27 (set_mode)
+            954 LOAD_FAST                5 (pl)
+            956 LOAD_ATTR               20 (is_platforming)
+            966 POP_JUMP_FORWARD_IF_FALSE     2 (to 972)
+            968 LOAD_CONST               9 ('sideview')
+            970 JUMP_FORWARD             1 (to 974)
+        >>  972 LOAD_CONST              10 ('topdown')
+        >>  974 PRECALL                  1
+            978 CALL                     1
+            988 POP_TOP
+
+105         990 LOAD_FAST                5 (pl)
+            992 LOAD_ATTR               21 (rect)
+           1002 LOAD_ATTR               28 (centerx)
+           1012 LOAD_GLOBAL             58 (SCREEN_WIDTH)
+           1024 LOAD_CONST              11 (2)
+           1026 BINARY_OP                2 (//)
+           1030 BINARY_OP               10 (-)
+           1034 STORE_FAST               6 (ox)
+
+106        1036 LOAD_FAST                5 (pl)
+           1038 LOAD_ATTR               21 (rect)
+           1048 LOAD_ATTR               30 (centery)
+           1058 LOAD_GLOBAL             62 (SCREEN_HEIGHT)
+           1070 LOAD_CONST              11 (2)
+           1072 BINARY_OP                2 (//)
+           1076 BINARY_OP               10 (-)
+           1080 STORE_FAST               7 (oy)
+
+107        1082 LOAD_FAST                0 (self)
+           1084 LOAD_ATTR               26 (camera)
+           1094 LOAD_ATTR               32 (offset)
+           1104 LOAD_METHOD             24 (update)
+           1126 LOAD_GLOBAL             67 (NULL + max)
+           1138 LOAD_CONST               1 (0)
+           1140 LOAD_FAST                6 (ox)
+           1142 PRECALL                  2
+           1146 CALL                     2
+           1156 LOAD_GLOBAL             67 (NULL + max)
+           1168 LOAD_CONST               1 (0)
+           1170 LOAD_FAST                7 (oy)
+           1172 PRECALL                  2
+           1176 CALL                     2
+           1186 PRECALL                  2
+           1190 CALL                     2
+           1200 POP_TOP
+           1202 LOAD_CONST               0 (None)
+           1204 RETURN_VALUE
+==== _go_next_room ====
+109           0 RESUME                   0
+
+110           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (room)
+             14 POP_JUMP_FORWARD_IF_FALSE    28 (to 72)
+             16 LOAD_FAST                0 (self)
+             18 LOAD_ATTR                0 (room)
+             28 LOAD_ATTR                1 (pacifist_clear)
+             38 POP_JUMP_FORWARD_IF_FALSE    16 (to 72)
+
+111          40 LOAD_FAST                0 (self)
+             42 COPY                     1
+             44 LOAD_ATTR                2 (run_pacifist_rooms)
+             54 LOAD_CONST               1 (1)
+             56 BINARY_OP               13 (+=)
+             60 SWAP                     2
+             62 STORE_ATTR               2 (run_pacifist_rooms)
+
+112     >>   72 LOAD_FAST                0 (self)
+             74 COPY                     1
+             76 LOAD_ATTR                3 (run_rooms_cleared)
+             86 LOAD_CONST               1 (1)
+             88 BINARY_OP               13 (+=)
+             92 SWAP                     2
+             94 STORE_ATTR               3 (run_rooms_cleared)
+
+113         104 LOAD_FAST                0 (self)
+            106 LOAD_ATTR                4 (room_index)
+            116 LOAD_CONST               1 (1)
+            118 BINARY_OP                0 (+)
+            122 LOAD_GLOBAL             11 (NULL + len)
+            134 LOAD_FAST                0 (self)
+            136 LOAD_ATTR                6 (rooms)
+            146 PRECALL                  1
+            150 CALL                     1
+            160 COMPARE_OP               5 (>=)
+            166 POP_JUMP_FORWARD_IF_FALSE    24 (to 216)
+
+114         168 LOAD_FAST                0 (self)
+            170 LOAD_METHOD              7 (_finish_run)
+            192 LOAD_CONST               2 (True)
+            194 KW_NAMES                 3
+            196 PRECALL                  1
+            200 CALL                     1
+            210 POP_TOP
+
+115         212 LOAD_CONST               0 (None)
+            214 RETURN_VALUE
+
+116     >>  216 LOAD_FAST                0 (self)
+            218 COPY                     1
+            220 LOAD_ATTR                4 (room_index)
+            230 LOAD_CONST               1 (1)
+            232 BINARY_OP               13 (+=)
+            236 SWAP                     2
+            238 STORE_ATTR               4 (room_index)
+
+117         248 LOAD_FAST                0 (self)
+            250 LOAD_METHOD              8 (_load_room)
+            272 PRECALL                  0
+            276 CALL                     0
+            286 POP_TOP
+            288 LOAD_CONST               0 (None)
+            290 RETURN_VALUE
+==== _finish_run ====
+119           0 RESUME                   0
+
+120           2 LOAD_GLOBAL              1 (NULL + ScoreManager)
+             14 LOAD_ATTR                1 (run_score)
+             24 LOAD_FAST                0 (self)
+             26 LOAD_ATTR                2 (run_rooms_cleared)
+             36 LOAD_FAST                0 (self)
+             38 LOAD_ATTR                3 (run_kills)
+             48 LOAD_FAST                0 (self)
+             50 LOAD_ATTR                4 (run_pacifist_rooms)
+             60 PRECALL                  3
+             64 CALL                     3
+             74 STORE_FAST               2 (score)
+
+121          76 LOAD_GLOBAL              1 (NULL + ScoreManager)
+             88 LOAD_ATTR                5 (currency_for_run)
+             98 LOAD_FAST                0 (self)
+            100 LOAD_ATTR                2 (run_rooms_cleared)
+            110 LOAD_FAST                0 (self)
+            112 LOAD_ATTR                3 (run_kills)
+            122 PRECALL                  2
+            126 CALL                     2
+            136 STORE_FAST               3 (currency)
+
+122         138 LOAD_FAST                0 (self)
+            140 LOAD_ATTR                6 (end_screen)
+            150 LOAD_METHOD              7 (set_stats)
+
+124         172 LOAD_FAST                1 (won)
+            174 POP_JUMP_FORWARD_IF_FALSE     2 (to 180)
+            176 LOAD_CONST               1 ('Victoire')
+            178 JUMP_FORWARD             1 (to 182)
+        >>  180 LOAD_CONST               2 ('Defaite')
+
+125     >>  182 LOAD_FAST                0 (self)
+            184 LOAD_ATTR                2 (run_rooms_cleared)
+
+126         194 LOAD_FAST                0 (self)
+            196 LOAD_ATTR                3 (run_kills)
+
+127         206 LOAD_FAST                0 (self)
+            208 LOAD_ATTR                4 (run_pacifist_rooms)
+
+128         218 LOAD_FAST                2 (score)
+
+129         220 LOAD_FAST                3 (currency)
+
+123         222 LOAD_CONST               3 (('Resultat', 'Salles', 'Eliminations', 'Salles pacifistes', 'Score', 'Or gagne (run)'))
+            224 BUILD_CONST_KEY_MAP      6
+
+122         226 PRECALL                  1
+            230 CALL                     1
+            240 POP_TOP
+
+132         242 LOAD_GLOBAL             17 (NULL + SaveManager)
+            254 LOAD_ATTR                9 (auto_save)
+
+133         264 LOAD_CONST               4 ('upgrades')
+            266 LOAD_FAST                0 (self)
+            268 LOAD_ATTR               10 (save_data)
+            278 LOAD_METHOD             11 (get)
+            300 LOAD_CONST               4 ('upgrades')
+            302 BUILD_MAP                0
+            304 PRECALL                  2
+            308 CALL                     2
+            318 BUILD_MAP                1
+
+135         320 LOAD_FAST                3 (currency)
+
+136         322 LOAD_FAST                2 (score)
+
+137         324 LOAD_FAST                0 (self)
+            326 LOAD_ATTR                3 (run_kills)
+
+138         336 LOAD_FAST                0 (self)
+            338 LOAD_ATTR                2 (run_rooms_cleared)
+
+134         348 LOAD_CONST               5 (('currency_gain', 'score', 'kills', 'rooms'))
+            350 BUILD_CONST_KEY_MAP      4
+
+132         352 PRECALL                  2
+            356 CALL                     2
+            366 POP_TOP
+
+141         368 LOAD_GLOBAL             17 (NULL + SaveManager)
+            380 LOAD_ATTR               12 (load_game)
+            390 PRECALL                  0
+            394 CALL                     0
+            404 LOAD_FAST                0 (self)
+            406 STORE_ATTR              10 (save_data)
+
+142         416 LOAD_CONST               6 ('end_screen')
+            418 LOAD_FAST                0 (self)
+            420 STORE_ATTR              13 (state)
+            430 LOAD_CONST               0 (None)
+            432 RETURN_VALUE

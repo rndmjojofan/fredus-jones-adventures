@@ -1,0 +1,91 @@
+﻿pygame 2.6.1 (SDL 2.28.4, Python 3.11.0)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+<function get_player_frame at 0x00000288405FBD80>
+ 68           0 RESUME                   0
+
+ 73           2 LOAD_FAST                0 (anim)
+              4 LOAD_CONST               1 ('walk')
+              6 COMPARE_OP               2 (==)
+             12 POP_JUMP_FORWARD_IF_FALSE    38 (to 90)
+
+ 74          14 LOAD_GLOBAL              0 (PATHS)
+             26 LOAD_CONST               2 ('player_walk')
+             28 BINARY_SUBSCR
+             38 STORE_FAST               3 (paths)
+
+ 75          40 LOAD_FAST                3 (paths)
+             42 LOAD_FAST                1 (frame_i)
+             44 LOAD_GLOBAL              3 (NULL + len)
+             56 LOAD_FAST                3 (paths)
+             58 PRECALL                  1
+             62 CALL                     1
+             72 BINARY_OP                6 (%)
+             76 BINARY_SUBSCR
+             86 STORE_FAST               4 (path)
+             88 JUMP_FORWARD           117 (to 324)
+
+ 76     >>   90 LOAD_FAST                0 (anim)
+             92 LOAD_CONST               3 ('run')
+             94 COMPARE_OP               2 (==)
+            100 POP_JUMP_FORWARD_IF_FALSE    38 (to 178)
+
+ 77         102 LOAD_GLOBAL              0 (PATHS)
+            114 LOAD_CONST               4 ('player_run')
+            116 BINARY_SUBSCR
+            126 STORE_FAST               3 (paths)
+
+ 78         128 LOAD_FAST                3 (paths)
+            130 LOAD_FAST                1 (frame_i)
+            132 LOAD_GLOBAL              3 (NULL + len)
+            144 LOAD_FAST                3 (paths)
+            146 PRECALL                  1
+            150 CALL                     1
+            160 BINARY_OP                6 (%)
+            164 BINARY_SUBSCR
+            174 STORE_FAST               4 (path)
+            176 JUMP_FORWARD            73 (to 324)
+
+ 79     >>  178 LOAD_FAST                0 (anim)
+            180 LOAD_CONST               5 ('jump')
+            182 COMPARE_OP               2 (==)
+            188 POP_JUMP_FORWARD_IF_FALSE    14 (to 218)
+
+ 80         190 LOAD_GLOBAL              0 (PATHS)
+            202 LOAD_CONST               6 ('player_jump')
+            204 BINARY_SUBSCR
+            214 STORE_FAST               4 (path)
+            216 JUMP_FORWARD            53 (to 324)
+
+ 81     >>  218 LOAD_FAST                0 (anim)
+            220 LOAD_CONST               7 ('roll')
+            222 COMPARE_OP               2 (==)
+            228 POP_JUMP_FORWARD_IF_FALSE    14 (to 258)
+
+ 82         230 LOAD_GLOBAL              0 (PATHS)
+            242 LOAD_CONST               8 ('player_roll')
+            244 BINARY_SUBSCR
+            254 STORE_FAST               4 (path)
+            256 JUMP_FORWARD            33 (to 324)
+
+ 83     >>  258 LOAD_FAST                0 (anim)
+            260 LOAD_CONST               9 ('hurt')
+            262 COMPARE_OP               2 (==)
+            268 POP_JUMP_FORWARD_IF_FALSE    14 (to 298)
+
+ 84         270 LOAD_GLOBAL              0 (PATHS)
+            282 LOAD_CONST              10 ('player_hurt')
+            284 BINARY_SUBSCR
+            294 STORE_FAST               4 (path)
+            296 JUMP_FORWARD            13 (to 324)
+
+ 86     >>  298 LOAD_GLOBAL              0 (PATHS)
+            310 LOAD_CONST              11 ('player_idle')
+            312 BINARY_SUBSCR
+            322 STORE_FAST               4 (path)
+
+ 87     >>  324 LOAD_GLOBAL              5 (NULL + get_scaled)
+            336 LOAD_FAST                4 (path)
+            338 LOAD_FAST                2 (display_size)
+            340 PRECALL                  2
+            344 CALL                     2
+            354 RETURN_VALUE

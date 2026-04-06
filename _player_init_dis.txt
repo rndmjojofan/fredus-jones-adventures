@@ -1,0 +1,179 @@
+﻿pygame 2.6.1 (SDL 2.28.4, Python 3.11.0)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+ 39           0 RESUME                   0
+
+ 40           2 LOAD_GLOBAL              1 (NULL + pygame)
+             14 LOAD_ATTR                1 (Vector2)
+             24 LOAD_FAST                1 (x)
+             26 LOAD_FAST                2 (y)
+             28 PRECALL                  2
+             32 CALL                     2
+             42 LOAD_FAST                0 (self)
+             44 STORE_ATTR               2 (pos)
+
+ 41          54 LOAD_GLOBAL              1 (NULL + pygame)
+             66 LOAD_ATTR                1 (Vector2)
+             76 PRECALL                  0
+             80 CALL                     0
+             90 LOAD_FAST                0 (self)
+             92 STORE_ATTR               3 (velocity)
+
+ 42         102 LOAD_GLOBAL              8 (PLAYER_SPEED)
+            114 LOAD_FAST                0 (self)
+            116 STORE_ATTR               5 (speed)
+
+ 43         126 LOAD_GLOBAL             12 (PLAYER_SIZE)
+            138 LOAD_FAST                0 (self)
+            140 STORE_ATTR               7 (size)
+
+ 44         150 LOAD_GLOBAL              1 (NULL + pygame)
+            162 LOAD_ATTR                8 (Rect)
+            172 LOAD_FAST                1 (x)
+            174 LOAD_FAST                2 (y)
+            176 LOAD_FAST                0 (self)
+            178 LOAD_ATTR                7 (size)
+            188 LOAD_FAST                0 (self)
+            190 LOAD_ATTR                7 (size)
+            200 PRECALL                  4
+            204 CALL                     4
+            214 LOAD_FAST                0 (self)
+            216 STORE_ATTR               9 (rect)
+
+ 46         226 LOAD_CONST               1 ('idle')
+            228 LOAD_FAST                0 (self)
+            230 STORE_ATTR              10 (state)
+
+ 47         240 LOAD_CONST               2 ('right')
+            242 LOAD_FAST                0 (self)
+            244 STORE_ATTR              11 (facing)
+
+ 48         254 LOAD_CONST               3 (False)
+            256 LOAD_FAST                0 (self)
+            258 STORE_ATTR              12 (is_hidden)
+
+ 49         268 LOAD_CONST               3 (False)
+            270 LOAD_FAST                0 (self)
+            272 STORE_ATTR              13 (is_invisible)
+
+ 50         282 LOAD_CONST               4 (0.0)
+            284 LOAD_FAST                0 (self)
+            286 STORE_ATTR              14 (invis_timer)
+
+ 51         296 LOAD_CONST               4 (0.0)
+            298 LOAD_FAST                0 (self)
+            300 STORE_ATTR              15 (noise_level)
+
+ 53         310 LOAD_CONST               5 (True)
+            312 LOAD_FAST                0 (self)
+            314 STORE_ATTR              16 (can_roll)
+
+ 54         324 LOAD_CONST               4 (0.0)
+            326 LOAD_FAST                0 (self)
+            328 STORE_ATTR              17 (roll_cooldown_timer)
+
+ 55         338 LOAD_CONST               3 (False)
+            340 LOAD_FAST                0 (self)
+            342 STORE_ATTR              18 (is_rolling)
+
+ 56         352 LOAD_CONST               4 (0.0)
+            354 LOAD_FAST                0 (self)
+            356 STORE_ATTR              19 (roll_timer)
+
+ 57         366 LOAD_GLOBAL              1 (NULL + pygame)
+            378 LOAD_ATTR                1 (Vector2)
+            388 LOAD_CONST               6 (1)
+            390 LOAD_CONST               7 (0)
+            392 PRECALL                  2
+            396 CALL                     2
+            406 LOAD_FAST                0 (self)
+            408 STORE_ATTR              20 (roll_dir)
+
+ 58         418 LOAD_GLOBAL              1 (NULL + pygame)
+            430 LOAD_ATTR                1 (Vector2)
+            440 PRECALL                  0
+            444 CALL                     0
+            454 LOAD_FAST                0 (self)
+            456 STORE_ATTR              21 (roll_start)
+
+ 59         466 LOAD_CONST               4 (0.0)
+            468 LOAD_FAST                0 (self)
+            470 STORE_ATTR              22 (roll_distance)
+
+ 61         480 LOAD_CONST               0 (None)
+            482 LOAD_CONST               0 (None)
+            484 BUILD_LIST               2
+            486 LOAD_FAST                0 (self)
+            488 STORE_ATTR              23 (active_items)
+
+ 62         498 LOAD_CONST               0 (None)
+            500 LOAD_CONST               0 (None)
+            502 BUILD_LIST               2
+            504 LOAD_FAST                0 (self)
+            506 STORE_ATTR              24 (passive_items)
+
+ 63         516 BUILD_MAP                0
+            518 LOAD_FAST                0 (self)
+            520 STORE_ATTR              25 (item_use_room)
+
+ 65         530 LOAD_CONST               3 (False)
+            532 LOAD_FAST                0 (self)
+            534 STORE_ATTR              26 (is_platforming)
+
+ 66         544 LOAD_CONST               4 (0.0)
+            546 LOAD_FAST                0 (self)
+            548 STORE_ATTR              27 (jump_velocity)
+
+ 67         558 LOAD_CONST               3 (False)
+            560 LOAD_FAST                0 (self)
+            562 STORE_ATTR              28 (on_ground)
+
+ 69         572 LOAD_FAST                3 (upgrades)
+            574 JUMP_IF_TRUE_OR_POP      4 (to 584)
+            576 LOAD_CONST               3 (False)
+            578 LOAD_CONST               3 (False)
+            580 LOAD_CONST               8 (('speed_boost', 'longer_roll'))
+            582 BUILD_CONST_KEY_MAP      2
+        >>  584 LOAD_FAST                0 (self)
+            586 STORE_ATTR              29 (upgrades)
+
+ 70         596 LOAD_CONST               4 (0.0)
+            598 LOAD_FAST                0 (self)
+            600 STORE_ATTR              30 (lamp_cooldown)
+
+ 71         610 LOAD_CONST               6 (1)
+            612 LOAD_FAST                0 (self)
+            614 STORE_ATTR              31 (lamp_charges)
+
+ 73         624 LOAD_CONST               3 (False)
+            626 LOAD_FAST                0 (self)
+            628 STORE_ATTR              32 (dead)
+
+ 74         638 LOAD_CONST               4 (0.0)
+            640 LOAD_FAST                0 (self)
+            642 STORE_ATTR              33 (immobilize_timer)
+
+ 75         652 LOAD_CONST               4 (0.0)
+            654 LOAD_FAST                0 (self)
+            656 STORE_ATTR              34 (hurt_flash)
+
+ 77         666 LOAD_CONST               4 (0.0)
+            668 LOAD_FAST                0 (self)
+            670 STORE_ATTR              35 (_footstep_acc)
+
+ 78         680 LOAD_CONST               4 (0.0)
+            682 LOAD_FAST                0 (self)
+            684 STORE_ATTR              36 (_anim_t)
+
+ 79         694 LOAD_CONST               7 (0)
+            696 LOAD_FAST                0 (self)
+            698 STORE_ATTR              37 (_anim_frame)
+
+ 80         708 LOAD_CONST               1 ('idle')
+            710 LOAD_FAST                0 (self)
+            712 STORE_ATTR              38 (_anim_name)
+
+ 81         722 LOAD_CONST               3 (False)
+            724 LOAD_FAST                0 (self)
+            726 STORE_ATTR              39 (sprite_flip)
+            736 LOAD_CONST               0 (None)
+            738 RETURN_VALUE

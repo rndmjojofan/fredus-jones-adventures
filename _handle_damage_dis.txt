@@ -1,0 +1,50 @@
+﻿pygame 2.6.1 (SDL 2.28.4, Python 3.11.0)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+144           0 RESUME                   0
+
+145           2 LOAD_FAST                0 (self)
+              4 LOAD_ATTR                0 (debug_invincible)
+             14 POP_JUMP_FORWARD_IF_TRUE    19 (to 54)
+             16 LOAD_FAST                0 (self)
+             18 LOAD_ATTR                1 (player)
+             28 POP_JUMP_FORWARD_IF_FALSE    12 (to 54)
+             30 LOAD_FAST                0 (self)
+             32 LOAD_ATTR                1 (player)
+             42 LOAD_ATTR                2 (dead)
+             52 POP_JUMP_FORWARD_IF_FALSE     2 (to 58)
+
+146     >>   54 LOAD_CONST               0 (None)
+             56 RETURN_VALUE
+
+147     >>   58 LOAD_FAST                0 (self)
+             60 LOAD_ATTR                1 (player)
+             70 LOAD_METHOD              3 (take_damage)
+             92 PRECALL                  0
+             96 CALL                     0
+            106 STORE_FAST               1 (r)
+
+148         108 LOAD_FAST                1 (r)
+            110 LOAD_CONST               1 ('dead')
+            112 COMPARE_OP               2 (==)
+            118 POP_JUMP_FORWARD_IF_FALSE    24 (to 168)
+
+149         120 LOAD_FAST                0 (self)
+            122 LOAD_METHOD              4 (_finish_run)
+            144 LOAD_CONST               2 (False)
+            146 KW_NAMES                 3
+            148 PRECALL                  1
+            152 CALL                     1
+            162 POP_TOP
+            164 LOAD_CONST               0 (None)
+            166 RETURN_VALUE
+
+150     >>  168 LOAD_FAST                1 (r)
+            170 LOAD_CONST               4 ('totem')
+            172 COMPARE_OP               2 (==)
+            178 POP_JUMP_FORWARD_IF_FALSE     2 (to 184)
+
+151         180 LOAD_CONST               0 (None)
+            182 RETURN_VALUE
+
+150     >>  184 LOAD_CONST               0 (None)
+            186 RETURN_VALUE

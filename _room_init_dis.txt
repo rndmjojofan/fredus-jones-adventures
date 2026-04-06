@@ -1,0 +1,144 @@
+﻿pygame 2.6.1 (SDL 2.28.4, Python 3.11.0)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+ 24           0 RESUME                   0
+
+ 31           2 LOAD_FAST                1 (room_id)
+              4 LOAD_FAST                0 (self)
+              6 STORE_ATTR               0 (id)
+
+ 32          16 LOAD_FAST                2 (room_type)
+             18 LOAD_FAST                0 (self)
+             20 STORE_ATTR               1 (type)
+
+ 33          30 LOAD_FAST                3 (size)
+             32 UNPACK_SEQUENCE          2
+             36 LOAD_FAST                0 (self)
+             38 STORE_ATTR               2 (width)
+             48 LOAD_FAST                0 (self)
+             50 STORE_ATTR               3 (height)
+
+ 34          60 LOAD_FAST                4 (rng)
+             62 LOAD_FAST                0 (self)
+             64 STORE_ATTR               4 (rng)
+
+ 36          74 BUILD_LIST               0
+             76 LOAD_FAST                0 (self)
+             78 STORE_ATTR               5 (walls)
+
+ 37          88 BUILD_LIST               0
+             90 LOAD_FAST                0 (self)
+             92 STORE_ATTR               6 (obstacles)
+
+ 38         102 BUILD_LIST               0
+            104 LOAD_FAST                0 (self)
+            106 STORE_ATTR               7 (enemies)
+
+ 39         116 BUILD_LIST               0
+            118 LOAD_FAST                0 (self)
+            120 STORE_ATTR               8 (levers)
+
+ 40         130 BUILD_LIST               0
+            132 LOAD_FAST                0 (self)
+            134 STORE_ATTR               9 (pressure_plates)
+
+ 41         144 BUILD_LIST               0
+            146 LOAD_FAST                0 (self)
+            148 STORE_ATTR              10 (vases)
+
+ 42         158 BUILD_LIST               0
+            160 LOAD_FAST                0 (self)
+            162 STORE_ATTR              11 (doors)
+
+ 43         172 BUILD_LIST               0
+            174 LOAD_FAST                0 (self)
+            176 STORE_ATTR              12 (traps_spikes)
+
+ 44         186 BUILD_LIST               0
+            188 LOAD_FAST                0 (self)
+            190 STORE_ATTR              13 (traps_arrows)
+
+ 45         200 BUILD_LIST               0
+            202 LOAD_FAST                0 (self)
+            204 STORE_ATTR              14 (traps_poison)
+
+ 46         214 BUILD_LIST               0
+            216 LOAD_FAST                0 (self)
+            218 STORE_ATTR              15 (alert_zones)
+
+ 47         228 BUILD_LIST               0
+            230 LOAD_FAST                0 (self)
+            232 STORE_ATTR              16 (projectiles)
+
+ 48         242 BUILD_LIST               0
+            244 LOAD_FAST                0 (self)
+            246 STORE_ATTR              17 (platforms)
+
+ 49         256 LOAD_CONST               0 (None)
+            258 LOAD_FAST                0 (self)
+            260 STORE_ATTR              18 (chest_rect)
+
+ 50         270 LOAD_CONST               0 (None)
+            272 LOAD_FAST                0 (self)
+            274 STORE_ATTR              19 (exit_rect)
+
+ 51         284 LOAD_CONST               1 ((0, 0))
+            286 LOAD_FAST                0 (self)
+            288 STORE_ATTR              20 (entry_xy)
+
+ 53         298 LOAD_CONST               2 (False)
+            300 LOAD_FAST                0 (self)
+            302 STORE_ATTR              21 (is_cleared)
+
+ 54         312 LOAD_CONST               3 (True)
+            314 LOAD_FAST                0 (self)
+            316 STORE_ATTR              22 (pacifist_clear)
+
+ 55         326 LOAD_CONST               4 (0)
+            328 LOAD_FAST                0 (self)
+            330 STORE_ATTR              23 (rooms_kills)
+
+ 57         340 BUILD_LIST               0
+            342 LOAD_FAST                0 (self)
+            344 STORE_ATTR              24 (lever_sequence_correct)
+
+ 58         354 BUILD_LIST               0
+            356 LOAD_FAST                0 (self)
+            358 STORE_ATTR              25 (lever_sequence_player)
+
+ 59         368 LOAD_CONST               0 (None)
+            370 LOAD_FAST                0 (self)
+            372 STORE_ATTR              26 (platform_timer)
+
+ 60         382 LOAD_CONST               2 (False)
+            384 LOAD_FAST                0 (self)
+            386 STORE_ATTR              27 (chest_looted)
+
+ 61         396 LOAD_FAST                2 (room_type)
+            398 LOAD_CONST               5 (('rest',))
+            400 CONTAINS_OP              0
+            402 LOAD_FAST                0 (self)
+            404 STORE_ATTR              28 (puzzle_complete)
+
+ 63         414 LOAD_CONST               2 (False)
+            416 LOAD_FAST                0 (self)
+            418 STORE_ATTR              29 (door_puzzle_active)
+
+ 64         428 LOAD_CONST               6 (1.0)
+            430 LOAD_FAST                0 (self)
+            432 STORE_ATTR              30 (_enemy_speed_mult)
+
+ 65         442 LOAD_CONST               2 (False)
+            444 LOAD_FAST                0 (self)
+            446 STORE_ATTR              31 (_platform_timeup_damage)
+
+ 66         456 LOAD_CONST               0 (None)
+            458 LOAD_FAST                0 (self)
+            460 STORE_ATTR              32 (background_surface)
+
+ 68         470 LOAD_FAST                0 (self)
+            472 LOAD_METHOD             33 (_build_walls)
+            494 PRECALL                  0
+            498 CALL                     0
+            508 POP_TOP
+            510 LOAD_CONST               0 (None)
+            512 RETURN_VALUE

@@ -1,0 +1,13 @@
+{
+  "currency": 3,
+  "best_score": 30,
+  "upgrades": {
+    "speed_boost": false,
+    "longer_roll": false
+  },
+  "stats": {
+    "runs": 4,
+    "total_kills": 0,
+    "rooms_cleared_total": 3
+  }
+}
